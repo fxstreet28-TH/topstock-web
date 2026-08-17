@@ -33,7 +33,9 @@ export function LanguageToggle({ className }: { className?: string }) {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
-        aria-label={t('languageLabel')}
+        // Includes the visible locale code so the accessible name contains
+        // the visible text (label-content-name-mismatch).
+        aria-label={`${t('languageLabel')} (${locale.toUpperCase()})`}
         disabled={isPending}
         className={cn(
           'inline-flex h-9 items-center gap-2 rounded-lg border border-surface-border px-3 text-sm text-ink-secondary transition-colors hover:border-brand-gold/40 hover:text-ink-primary disabled:opacity-60',

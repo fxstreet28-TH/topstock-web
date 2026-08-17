@@ -93,15 +93,20 @@ export function BacktestSection() {
                   </dd>
                 </div>
               ))}
-              <div className="flex items-center bg-surface-elevated p-5">
-                <Button asChild variant="ghost" size="sm" className="px-0">
-                  <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle aria-hidden="true" />
-                    {t('cta')}
-                  </a>
-                </Button>
-              </div>
             </dl>
+
+            {/*
+              The CTA lives outside the <dl>: a div that is not a dt/dd group
+              is not valid inside a definition list.
+            */}
+            <div className="flex items-center border-t border-surface-border bg-surface-elevated p-5">
+              <Button asChild variant="ghost" size="sm" className="px-0">
+                <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  {t('cta')}
+                </a>
+              </Button>
+            </div>
           </div>
 
           <p className="mt-5 text-xs leading-relaxed text-ink-tertiary">{t('disclaimer')}</p>

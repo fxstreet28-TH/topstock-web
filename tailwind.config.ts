@@ -36,7 +36,9 @@ const config: Config = {
         ink: {
           primary: '#F5F5F5',
           secondary: '#A3A3A3',
-          tertiary: '#737373',
+          // #737373 failed WCAG AA on both surfaces (4.18 / 3.89).
+          // #8A8A8A clears 4.5:1 on #0A0A0A and #141414 (5.73 / 5.34).
+          tertiary: '#8A8A8A',
         },
         // Semantic tokens consumed by the shadcn-style primitives.
         background: 'hsl(var(--background))',

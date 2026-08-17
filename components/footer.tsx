@@ -125,7 +125,8 @@ export function Footer() {
               href={siteConfig.parentUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-secondary transition-colors hover:text-brand-gold"
+              // Inside a sentence, so it needs a non-colour cue (link-in-text-block).
+              className="underline underline-offset-2 transition-colors hover:text-brand-gold"
             >
               {siteConfig.parentBrand}
             </a>

@@ -85,7 +85,11 @@ export function Nav() {
             aria-label={open ? t('closeMenu') : t('openMenu')}
             className="inline-flex size-9 items-center justify-center rounded-lg border border-surface-border text-ink-secondary transition-colors hover:text-ink-primary"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            {open ? (
+              <X className="size-5" aria-hidden="true" />
+            ) : (
+              <Menu className="size-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </nav>

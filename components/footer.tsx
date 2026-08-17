@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl';
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle, Send } from 'lucide-react';
 
 import { Link } from '@/lib/navigation';
-import { siteConfig } from '@/lib/site';
+import { CONTACT, siteConfig } from '@/lib/site';
 import { Logo } from '@/components/logo';
 import { RiskDisclaimer } from '@/components/risk-disclaimer';
 
@@ -19,6 +19,7 @@ const columns = [
   {
     key: 'resources',
     links: [
+      { href: '/trial', key: 'trial' },
       { href: '/brokers', key: 'brokers' },
       { href: '/faq', key: 'faq' },
       { href: '/support', key: 'support' },
@@ -47,23 +48,37 @@ export function Footer() {
           <div className="space-y-4">
             <Logo />
             <p className="max-w-xs text-sm leading-relaxed text-ink-secondary">{t('tagline')}</p>
-            <div className="flex flex-col gap-2 pt-1 text-sm">
+
+            <div className="flex flex-col gap-2.5 pt-1 text-sm">
+              {/* LINE is the primary channel, so it leads and carries the accent. */}
               <a
-                href={`mailto:${siteConfig.supportEmail}`}
-                className="inline-flex items-center gap-2 text-ink-secondary transition-colors hover:text-brand-gold"
+                href={CONTACT.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-medium text-brand-gold transition-opacity hover:opacity-80"
               >
-                <Mail className="size-4" aria-hidden="true" />
-                {siteConfig.supportEmail}
+                <MessageCircle className="size-4" aria-hidden="true" />
+                {t('line', { id: CONTACT.line })}
               </a>
               <a
-                href={siteConfig.social.line}
+                href={CONTACT.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-ink-secondary transition-colors hover:text-brand-gold"
               >
-                <MessageCircle className="size-4" aria-hidden="true" />
-                {t('line', { id: siteConfig.social.lineId })}
+                <Send className="size-4" aria-hidden="true" />
+                {t('telegram')}
               </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="inline-flex items-center gap-2 text-ink-secondary transition-colors hover:text-brand-gold"
+              >
+                <Mail className="size-4" aria-hidden="true" />
+                {CONTACT.email}
+              </a>
+              <p className="text-xs text-ink-tertiary">
+                {t('supportHours', { hours: CONTACT.supportHours })}
+              </p>
             </div>
           </div>
 
@@ -71,7 +86,7 @@ export function Footer() {
             <nav key={col.key} aria-labelledby={`footer-${col.key}`}>
               <h2
                 id={`footer-${col.key}`}
-                className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-tertiary"
+                className="font-mono text-[0.6875rem] uppercase track-label text-ink-tertiary"
               >
                 {t(`columns.${col.key}`)}
               </h2>
@@ -91,7 +106,14 @@ export function Footer() {
           ))}
         </div>
 
-        <RiskDisclaimer variant="compact" className="mt-14 border-t border-surface-border pt-8" />
+        <div className="mt-14 border-t border-surface-border pt-8">
+          <h2 className="font-mono text-[0.6875rem] uppercase track-label text-ink-tertiary">
+            {t('paymentTitle')}
+          </h2>
+          <p className="mt-3 text-sm text-ink-secondary">{t('paymentMethods')}</p>
+        </div>
+
+        <RiskDisclaimer variant="compact" className="mt-10 border-t border-surface-border pt-8" />
 
         <div className="mt-8 flex flex-col gap-3 border-t border-surface-border pt-8 text-xs text-ink-tertiary sm:flex-row sm:items-center sm:justify-between">
           <p>

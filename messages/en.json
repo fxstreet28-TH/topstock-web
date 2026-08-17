@@ -7,7 +7,7 @@
     "pricing": "Pricing",
     "brokers": "Brokers",
     "faq": "FAQ",
-    "cta": "Start free trial",
+    "cta": "Request Free Backtest",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "languageLabel": "Change language",
@@ -17,6 +17,11 @@
     "tagline": "The MetaTrader 5 Expert Advisor engineered exclusively for NASDAQ 100 and US 30.",
     "rights": "All rights reserved.",
     "builtBy": "A product of",
+    "line": "LINE {id}",
+    "telegram": "Telegram",
+    "supportHours": "Support hours {hours}",
+    "paymentTitle": "Payment methods",
+    "paymentMethods": "PromptPay · Bank transfer · Stripe (international)",
     "columns": {
       "product": "Product",
       "resources": "Resources",
@@ -31,12 +36,215 @@
       "faq": "FAQ",
       "support": "Support",
       "activate": "Activate license",
+      "trial": "Request free backtest",
       "terms": "Terms of service",
       "privacy": "Privacy policy",
       "risk": "Risk disclosure",
       "refund": "Refund policy"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Topstock EA v{version}",
+      "title": "The Expert Advisor built exclusively for <gold>NASDAQ 100 & US 30</gold>",
+      "subtitle": "BUY-only hedge grid strategy with Fast Points Trail — tuned exclusively for US tech index volatility. Compatible with cent accounts from $10 · Try a free backtest before you buy.",
+      "ctaPrimary": "Request Free Backtest",
+      "ctaSecondary": "See how it works",
+      "trust": {
+        "built": "Built exclusively for NAS100 + US30",
+        "price": "One-time ฿4,900 · No subscription",
+        "consult": "Consult before buying · Line + Telegram"
+      }
     },
-    "line": "LINE {id}"
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "Most EAs weren't built for indices",
+      "transition": "Topstock was built to solve all three.",
+      "items": {
+        "dna": {
+          "title": "Wrong instrument DNA",
+          "body": "Gold moves 100-300 points a day. NAS100 moves 500-800. Trailing stops tuned for XAUUSD hemorrhage profit the moment you point them at an index."
+        },
+        "hedge": {
+          "title": "Wrong hedge logic",
+          "body": "Symmetric hedging assumes a range-bound market. NAS100 and US30 have carried an upward bias for decades — a BUY-heavy strategy captures more of that, not less."
+        },
+        "timing": {
+          "title": "Wrong entry scale",
+          "body": "EMA-based entries that work on gold at $2,000 do not translate to an index at $20,000. The timing has to be recalibrated to the scale of the price."
+        }
+      }
+    },
+    "solution": {
+      "eyebrow": "The solution",
+      "title": "Built for indices from the first line",
+      "items": {
+        "native": {
+          "title": "Index-native strategy",
+          "body": "Not a gold EA repurposed. Every parameter — entry timing, hedge triggers, trail distances, exit targets — was tuned specifically for NAS100 and US30 volatility patterns."
+        },
+        "trail": {
+          "title": "Fast Points Trail (v1.1)",
+          "body": "EMA-based trailing lags by hundreds of points on fast indices. Topstock's Fast Points Trail reacts within 300 points of price — protecting profit before the giveback."
+        },
+        "cent": {
+          "title": "Cent-account safe",
+          "body": "Test the strategy with real money at $0.0001 per point of risk. Start with $10 on FBS Cent and scale to a standard account once it's proven."
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Four stages of the mechanism",
+      "description": "Every figure below is the real value from the EA source, not a marketing number.",
+      "stepLabel": "Step {n}",
+      "items": {
+        "entry": {
+          "title": "Anticipation Batch Entry",
+          "body": "When price enters the last 20% of the EMA100→EMA200 gap, Topstock opens a 5-order batch anticipating the reversal. Direction is set by EMA100 against EMA200."
+        },
+        "confirm": {
+          "title": "Cross Confirmation",
+          "body": "If price crosses EMA100 in the batch direction, one additional confirmation order is added — increasing size in the direction of momentum."
+        },
+        "recovery": {
+          "title": "Independent Grid Recovery",
+          "body": "All 6 grids operate independently. The first hedge level triggers at 1,500 points adverse (ANT batch) or 1,000 points (Cross order), and every level after that steps every 1,000 points. Every hedge is a BUY."
+        },
+        "exit": {
+          "title": "Dynamic Exit",
+          "body": "A grid closes when net P/L reaches a target scaled to position size: 300 points × total lots × value per point. The bigger the grid, the proportionally bigger the move it needs."
+        }
+      },
+      "safety": {
+        "title": "Safety layers built in",
+        "items": {
+          "selfHealing": "Self-healing close logic retries automatically when the broker rejects an order",
+          "noLockLoss": "Never locks in losses",
+          "iterationCap": "Hard cap of 30 iterations per tick prevents runaway loops",
+          "phaseManagement": "V2 phase management preserves the original position throughout recovery"
+        }
+      }
+    },
+    "tryBeforeBuy": {
+      "eyebrow": "Try before you buy",
+      "title": "Try before you commit",
+      "description": "We don't sell directly. Everyone starts with a free backtest and a conversation with the team.",
+      "stepLabel": "Step {n}",
+      "cta": "Request Free Backtest",
+      "items": {
+        "backtest": {
+          "title": "Request a free backtest",
+          "body": "Submit the form with your broker and timeframe preferences. Our team runs Topstock EA on your historical data and sends the report within 24 hours."
+        },
+        "consult": {
+          "title": "One-on-one consultation",
+          "body": "Chat with our team via Line or Telegram — every question about strategy, settings, risk, and live usage. 30-60 minutes, free."
+        },
+        "decide": {
+          "title": "Decide to buy",
+          "body": "If you're satisfied with the backtest and understand the strategy, pay via PromptPay or bank transfer. Receive the EA with the setup guide immediately."
+        }
+      }
+    },
+    "backtest": {
+      "eyebrow": "Backtest",
+      "title": "We publish numbers only once they're verified",
+      "description": "The full Strategy Tester report is being verified. We've chosen to show no figures at all until we can stand behind them. In the meantime, you can request a free backtest on your own broker's data.",
+      "emptyState": "Awaiting verified data",
+      "emptyStateHint": "The equity curve will appear here once the data is confirmed.",
+      "cta": "Request a backtest on your data",
+      "metrics": {
+        "return": "Total return",
+        "drawdown": "Max drawdown",
+        "profitFactor": "Profit factor",
+        "winRate": "Win rate",
+        "trades": "Total trades",
+        "duration": "Avg trade duration",
+        "recovery": "Recovery factor"
+      },
+      "disclaimer": "Past performance does not guarantee future results. Backtest data is based on historical M1 tick data from a broker feed. Live results may vary due to spread, slippage, and execution differences."
+    },
+    "brokers": {
+      "eyebrow": "Compatibility",
+      "title": "Works with any MT5 broker offering NAS100 or US30",
+      "description": "Topstock runs on any MT5 broker that lists NAS100 / US100 / USTEC or US30 / DJ30. The brokers below are the ones our customers are currently using.",
+      "disclosure": "This list contains no commission-bearing referral links and implies no business partnership.",
+      "centNote": "Cent account",
+      "standardNote": "Standard account"
+    },
+    "pricing": {
+      "eyebrow": "Pricing",
+      "title": "One price. No hidden costs.",
+      "productName": "TOPSTOCK EA v{version}",
+      "billingNote": "one-time",
+      "cta": "Request Free Backtest",
+      "paymentLabel": "Pay via",
+      "paymentMethods": "PromptPay · Bank transfer · Stripe (international)",
+      "note": "Launch pricing — license count limited to ensure support quality.",
+      "includes": {
+        "ea": "Topstock EA v1.1 (compiled .ex5)",
+        "activations": "Unlimited MT5 account activations",
+        "updates": "All future v1.x updates",
+        "trial": "Free backtest trial before purchase",
+        "consultation": "Setup consultation (30-60 min)",
+        "support": "Line support group (Thai + English)",
+        "guarantee": "30-day satisfaction guarantee"
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions",
+      "more": "See all questions",
+      "items": {
+        "trial": {
+          "q": "How do I get the free backtest?",
+          "a": "Fill in the form on the trial page with the broker you use and the symbol you're interested in (NAS100 or US30). Our team replies via Line or Telegram within 24 hours with your backtest report."
+        },
+        "mustConsult": {
+          "q": "Do I have to talk to the team before buying?",
+          "a": "No — if you already understand the EA and how to configure it, you can ask for a payment link straight away. But we recommend a conversation first, to be sure the EA suits your broker, account, and trading style — it prevents buying something that won't work for you."
+        },
+        "payment": {
+          "q": "What payment methods do you accept?",
+          "a": "PromptPay (for Thai bank accounts), bank transfer, or Stripe (for credit cards and international customers). We send the payment link after the consultation."
+        },
+        "included": {
+          "q": "What does the price include?",
+          "a": "The ready-to-run EA (.ex5), unlimited MT5 account activations, free updates across v1.x, a 30-60 minute setup call, and the Line support group. No monthly fee, no hidden costs."
+        },
+        "refund": {
+          "q": "Is there a refund if I'm not satisfied?",
+          "a": "Yes — a 30-day satisfaction guarantee. Contact us on Line or by email at support if you'd like a refund."
+        },
+        "whyConsult": {
+          "q": "Why consult before buying?",
+          "a": "Because every EA has its own character. We want to be sure you understand the right broker and account type (cent vs standard), the minimum capital to use, the risk parameters to set, and how to monitor and adjust. Customers who understand the strategy from the start get better results and need less support — both sides win."
+        },
+        "priceCompare": {
+          "q": "How does this price compare to other EAs?",
+          "a": "Quality EAs on the market run roughly $99-$999 (฿3,500-฿35,000). Topstock is priced at ฿4,900 — mid-tier, not the cheapest, but weighed against an exclusive focus on indices (not a generic EA), a consultation before purchase, human review of each activation, and free updates across the v1.x line."
+        },
+        "brokers": {
+          "q": "Which brokers work with Topstock?",
+          "a": "Any MT5 broker offering NAS100 / US100 / USTEC or US30 / DJ30. Our customers mainly use FBS (cent account for testing), Exness, and XM."
+        },
+        "minimum": {
+          "q": "What's the minimum account size?",
+          "a": "$10 on a cent account (such as FBS Cent) is enough to test the strategy safely. For a live standard account we recommend $500 minimum so position sizing is meaningful."
+        },
+        "vps": {
+          "q": "Do I need to keep MT5 running 24/5?",
+          "a": "Yes — MT5 must be running during market hours. We recommend renting a VPS (around $5-15/month) for stable 24/5 operation. The setup guide includes VPS recommendations."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Start with a free backtest. No commitment.",
+      "description": "Send us your broker and the symbol you're interested in. We'll run the backtest and get back to you within 24 hours.",
+      "ctaPrimary": "Request Free Backtest",
+      "ctaSecondary": "Chat on LINE"
+    }
   },
   "legal": {
     "riskWarning": {
@@ -47,11 +255,12 @@
   "common": {
     "comingSoon": "Coming soon",
     "learnMore": "Learn more",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "pending": "—"
   },
   "metadata": {
     "title": "Topstock EA — MetaTrader 5 Expert Advisor for NASDAQ 100 & US 30",
-    "description": "Purpose-built EA for index trading. BUY-only hedge grid strategy with Fast Points Trail. Cent-account compatible. Free trial first — one-time ฿4,900, lifetime access.",
+    "description": "Purpose-built MT5 EA for NASDAQ 100 & US 30. BUY-only hedge grid with Fast Points Trail. Free backtest trial + consultation before purchase. ฿4,900 one-time.",
     "titleTemplate": "%s — Topstock EA"
   }
 }

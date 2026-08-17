@@ -1,8 +1,8 @@
 /**
  * Single source of truth for site-wide constants.
  *
- * NOTE: contact handles and company details are pending confirmation from the
- * product owner — see README "Pending inputs".
+ * Contact handles and payment details are env-driven so they can be corrected
+ * in Vercel without a redeploy of code — see README "Pending inputs".
  */
 
 export const siteConfig = {
@@ -11,41 +11,76 @@ export const siteConfig = {
   parentUrl: 'https://aurumtech.co',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://topstock.aurumtech.co',
   version: '1.1',
-  supportEmail: 'support@topstock.aurumtech.co',
-  social: {
-    /** Primary contact channel. */
-    line: 'https://line.me/R/ti/p/@aurumtech',
-    lineId: '@aurumtech',
-    telegram: 'https://t.me/aurumtech',
-  },
 } as const;
 
 /**
- * Single one-time price. There are no tiers — the whole product is one
- * purchase, quoted in Thai baht.
+ * One product, one price. No tiers, no subscription.
+ *
+ * `includes` holds message keys rather than literal strings: the site is
+ * Thai-primary with an English translation, so the displayed bullets live in
+ * messages/{locale}.json under `pricing.includes.*`.
  */
-export const pricing = {
+export const PRICING = {
+  currency: 'THB' as const,
   amount: 4900,
-  currency: 'THB',
-  /** ISO code kept separate from the display symbol for Intl formatting. */
-  symbol: '฿',
-  /** 'once' — no subscription, no renewal. */
-  billing: 'once',
+  amountFormatted: '฿4,900',
+  /** Indicative only — shown as secondary text for international visitors. */
+  amountUSD: '~$140 USD',
+  billing: 'one-time' as const,
+  includes: [
+    'ea',
+    'activations',
+    'updates',
+    'trial',
+    'consultation',
+    'support',
+    'guarantee',
+  ] as const,
+} as const;
+
+export const CONTACT = {
+  line: process.env.NEXT_PUBLIC_LINE_ID ?? '@aurumtech',
+  lineUrl: process.env.NEXT_PUBLIC_LINE_QR_URL ?? 'https://line.me/R/ti/p/@aurumtech',
+  telegram: 'aurumtech_support',
+  telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/aurumtech_support',
+  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? 'support@topstock.aurumtech.co',
+  supportHours: 'Mon-Fri 9:00-18:00 ICT',
 } as const;
 
 /**
- * Formats the price for display, e.g. "฿4,900".
- * Uses en-US grouping deliberately: Thai and English both render 4,900 the
- * same way, so the output is locale-stable.
+ * The consultative funnel. Nothing on this site sells directly — every
+ * primary CTA leads to a trial request.
  */
-export function formatPrice(amount: number = pricing.amount): string {
-  return `${pricing.symbol}${amount.toLocaleString('en-US')}`;
-}
+export const salesFlow = ['trial', 'consult', 'purchase'] as const;
+export type SalesStage = (typeof salesFlow)[number];
 
 /**
- * The sales funnel. This is a consultative, manual flow — there is no
- * automated checkout in the MVP. Each stage maps to a step in the
- * "how to buy" section on the landing page.
+ * Brokers the EA is known to run on. Names only — these are not affiliate
+ * links and carry no partnership claim.
  */
-export const salesFlow = ['trial', 'consult', 'payment', 'license'] as const;
-export type SalesStage = (typeof salesFlow)[number];
+export const brokers = [
+  { id: 'fbs', name: 'FBS', note: 'cent' },
+  { id: 'exness', name: 'Exness', note: 'standard' },
+  { id: 'xm', name: 'XM', note: 'standard' },
+  { id: 'icmarkets', name: 'IC Markets', note: 'standard' },
+  { id: 'pepperstone', name: 'Pepperstone', note: 'standard' },
+  { id: 'tickmill', name: 'Tickmill', note: 'standard' },
+] as const;
+
+/**
+ * Strategy parameters, transcribed from the EA source. These are product
+ * facts, not marketing copy — do not adjust them without checking the EA.
+ */
+export const strategySpec = {
+  grids: 6,
+  anticipationOrders: 5,
+  crossConfirmationOrders: 1,
+  gapEntryZonePercent: 20,
+  hedgeTriggerAntPoints: 1500,
+  hedgeTriggerCrossPoints: 1000,
+  hedgeStepPoints: 1000,
+  exitTargetPoints: 300,
+  trailActivationPoints: 500,
+  trailDistancePoints: 300,
+  maxIterationsPerTick: 30,
+} as const;

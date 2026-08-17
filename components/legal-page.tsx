@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 
 import { routing, type Locale } from '@/lib/routing';
-import { COMPANY } from '@/lib/site';
+import { COMPANY, CONTACT, isPendingCompanyValue } from '@/lib/site';
 import { PageHeader } from '@/components/page-header';
 
 export type LegalDoc = 'terms' | 'privacy' | 'risk' | 'refund';
@@ -31,6 +31,21 @@ export async function buildLegalMetadata(doc: LegalDoc, locale: string): Promise
   };
 }
 
+/**
+ * Renders a company field, marking it when the real value is still to come so
+ * a reader is not left thinking a placeholder is the registration.
+ */
+function PendingAware({ value }: { value: string }) {
+  if (!isPendingCompanyValue(value)) return <span className="text-ink-secondary">{value}</span>;
+
+  return (
+    <span className="inline-flex items-center gap-2 rounded-md border border-brand-gold/30 bg-brand-gold/[0.06] px-2 py-0.5 text-ink-tertiary">
+      <span aria-hidden="true">⚠</span>
+      {value}
+    </span>
+  );
+}
+
 export async function LegalPage({ doc, locale }: { doc: LegalDoc; locale: string }) {
   setRequestLocale(locale as Locale);
   const t = await getTranslations({ locale, namespace: `legal.${doc}` });
@@ -47,20 +62,38 @@ export async function LegalPage({ doc, locale }: { doc: LegalDoc; locale: string
           </p>
 
           {/*
-            Registered company details are pending. COMPANY.* holds clearly
-            bracketed placeholders so an unfilled field is obvious on the page
-            rather than reading as a real registration.
+            The operator's identity, which a terms or privacy document has to
+            state. Address and registration number are still outstanding, so
+            they are bracketed in COMPANY and flagged here rather than being
+            presented as settled facts.
           */}
-          <div className="mt-6 rounded-xl border border-surface-border bg-surface-elevated p-5 text-sm leading-relaxed text-ink-secondary">
-            <p className="font-medium text-ink-primary">{COMPANY.legalName}</p>
-            <p className="mt-1">{COMPANY.registeredAddress}</p>
-            <p className="mt-1">
-              {tc('registrationNo')}: {COMPANY.registrationNumber}
-            </p>
-            <p className="mt-1">
-              {tc('jurisdiction')}: {COMPANY.jurisdiction}
-            </p>
-          </div>
+          <dl className="mt-6 grid gap-x-6 gap-y-2 rounded-xl border border-surface-border bg-surface-elevated p-5 text-sm leading-relaxed sm:grid-cols-[auto_1fr]">
+            <dt className="text-ink-tertiary">{tc('operator')}</dt>
+            <dd className="font-medium text-ink-primary">{COMPANY.legalName}</dd>
+
+            <dt className="text-ink-tertiary">{tc('registeredAddress')}</dt>
+            <dd>
+              <PendingAware value={COMPANY.registeredAddress} />
+            </dd>
+
+            <dt className="text-ink-tertiary">{tc('registrationNo')}</dt>
+            <dd>
+              <PendingAware value={COMPANY.registrationNumber} />
+            </dd>
+
+            <dt className="text-ink-tertiary">{tc('jurisdiction')}</dt>
+            <dd className="text-ink-secondary">{COMPANY.jurisdiction}</dd>
+
+            <dt className="text-ink-tertiary">{tc('contactEmail')}</dt>
+            <dd>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="link-underline text-brand-gold transition-opacity hover:opacity-80"
+              >
+                {CONTACT.email}
+              </a>
+            </dd>
+          </dl>
 
           <div className="mt-10 flex flex-col gap-8">
             {LEGAL_SECTIONS[doc].map((key, i) => (
@@ -70,7 +103,16 @@ export async function LegalPage({ doc, locale }: { doc: LegalDoc; locale: string
                   {t(`sections.${key}.title`)}
                 </h2>
                 <p className="mt-3 whitespace-pre-line text-[0.9375rem] leading-relaxed text-ink-secondary">
-                  {t(`sections.${key}.body`)}
+                  {/*
+                    Company and contact values are interpolated rather than
+                    written into the prose, so there is exactly one place to
+                    change them. next-intl ignores values a message does not use.
+                  */}
+                  {t(`sections.${key}.body`, {
+                    company: COMPANY.legalName,
+                    email: CONTACT.email,
+                    jurisdiction: COMPANY.jurisdiction,
+                  })}
                 </p>
               </section>
             ))}

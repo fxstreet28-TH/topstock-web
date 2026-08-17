@@ -45,7 +45,7 @@ export const CONTACT = {
   lineUrl: readUrlEnv(process.env.NEXT_PUBLIC_LINE_QR_URL, 'https://line.me/R/ti/p/@aurumtech'),
   telegram: 'aurumtech_support',
   telegramUrl: readUrlEnv(process.env.NEXT_PUBLIC_TELEGRAM_URL, 'https://t.me/aurumtech_support'),
-  email: readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, 'support@topstock.aurumtech.co'),
+  email: readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, 'support@aurumtech.co'),
   supportHours: 'Mon-Fri 9:00-18:00 ICT',
 } as const;
 
@@ -59,17 +59,25 @@ export type SalesStage = (typeof salesFlow)[number];
 /**
  * Registered company details for the legal pages.
  *
- * PENDING: every value below is a bracketed placeholder. They render verbatim
- * on the legal pages so an unfilled field is visibly unfilled rather than
- * reading as a real registration. Replace before launch.
+ * Two fields are still outstanding and stay wrapped in brackets so they render
+ * as visibly unfilled rather than reading as a real registration. The legal
+ * pages flag any bracketed value — see `isPendingCompanyValue`.
  */
 export const COMPANY = {
-  legalName: '[AURUM TECH — ชื่อนิติบุคคลจดทะเบียน]',
-  registeredAddress: '[AURUM TECH — ที่อยู่จดทะเบียน]',
-  registrationNumber: '[เลขทะเบียนพาณิชย์]',
-  jurisdiction: '[ประเทศไทย / Thailand]',
+  legalName: 'AURUM TECH',
+  registeredAddress: '[Por ต้องกรอก — ที่อยู่จดทะเบียนพาณิชย์]',
+  registrationNumber: '[Por ต้องกรอก — เลข ทพ.]',
+  jurisdiction: 'Thailand',
   documentsUpdated: '2026-08-17',
 } as const;
+
+/**
+ * True while a company field is still a bracketed placeholder, so the legal
+ * pages can mark it rather than presenting it as a settled fact.
+ */
+export function isPendingCompanyValue(value: string): boolean {
+  return value.trim().startsWith('[');
+}
 
 /**
  * Brokers the EA is known to run on. Names only — these are not affiliate

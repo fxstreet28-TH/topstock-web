@@ -36,7 +36,7 @@ function escapeHtml(value: string): string {
 export async function notifyAdminOfLead(lead: LeadNotification): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.ADMIN_NOTIFICATION_EMAIL;
-  const from = process.env.NOTIFICATION_FROM_EMAIL ?? `Topstock <noreply@topstock.aurumtech.co>`;
+  const from = process.env.NOTIFICATION_FROM_EMAIL ?? `Topstock <noreply@aurumtech.co>`;
 
   if (!apiKey || !to) return false;
 

@@ -251,7 +251,10 @@
       "lastUpdated": "Last updated {date}",
       "registrationNo": "Registration no.",
       "jurisdiction": "Jurisdiction",
-      "notLegalAdvice": "This document is published for transparency about our service. It is not legal advice. If you have questions about your rights, please consult a qualified legal professional."
+      "notLegalAdvice": "This document is published for transparency about our service. It is not legal advice. If you have questions about your rights, please consult a qualified legal professional.",
+      "operator": "Operator",
+      "registeredAddress": "Registered address",
+      "contactEmail": "Contact email"
     },
     "terms": {
       "title": "Terms of service",
@@ -263,7 +266,7 @@
         },
         "licence": {
           "title": "Licence granted",
-          "body": "On full payment you receive a perpetual, non-exclusive, non-transferable licence to use Topstock EA on your own MetaTrader 5 accounts, with no limit on the number of accounts.\n\nThe licence covers every update in the v1.x line. Ownership and all intellectual property in the software remain with AURUM TECH."
+          "body": "On full payment you receive a perpetual, non-exclusive, non-transferable licence to use Topstock EA on your own MetaTrader 5 accounts, with no limit on the number of accounts.\n\nThe licence covers every update in the v1.x line. Ownership and all intellectual property in the software remain with {company}."
         },
         "permitted": {
           "title": "What you may do",
@@ -275,7 +278,7 @@
         },
         "noAdvice": {
           "title": "Not investment advice",
-          "body": "Topstock EA is a software tool that executes a defined set of rules. It is not investment advice, not a solicitation to trade any instrument, and not a fund-management service.\n\nAURUM TECH is not a licensed financial advisor, broker, or fund manager. The decision to use the software, and all risk arising from it, is yours alone."
+          "body": "Topstock EA is a software tool that executes a defined set of rules. It is not investment advice, not a solicitation to trade any instrument, and not a fund-management service.\n\n{company} is not a licensed financial advisor, broker, or fund manager. The decision to use the software, and all risk arising from it, is yours alone."
         },
         "availability": {
           "title": "Availability",
@@ -283,7 +286,7 @@
         },
         "liability": {
           "title": "Limitation of liability",
-          "body": "To the fullest extent permitted by law, AURUM TECH is not liable for any damages arising from use of the software, including trading losses, lost opportunity, or indirect damages.\n\nOur total aggregate liability in any circumstance will not exceed the amount you paid for the software."
+          "body": "To the fullest extent permitted by law, {company} is not liable for any damages arising from use of the software, including trading losses, lost opportunity, or indirect damages.\n\nOur total aggregate liability in any circumstance will not exceed the amount you paid for the software."
         },
         "termination": {
           "title": "Termination",
@@ -295,7 +298,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "For questions about these terms, contact us on LINE or by email at the addresses on the support page."
+          "body": "For questions about these terms, contact {company} on LINE or by email at {email}."
         }
       }
     },
@@ -305,7 +308,7 @@
       "sections": {
         "scope": {
           "title": "Scope",
-          "body": "This policy describes how AURUM TECH collects, uses, and protects personal data belonging to visitors of this website and customers of Topstock EA, under Thailand's Personal Data Protection Act B.E. 2562 (PDPA)."
+          "body": "This policy describes how {company} collects, uses, and protects personal data belonging to visitors of this website and customers of Topstock EA, under Thailand's Personal Data Protection Act B.E. 2562 (PDPA)."
         },
         "collected": {
           "title": "What we collect",
@@ -341,7 +344,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "For questions about this policy, or to exercise your PDPA rights, contact us on LINE or by email at the addresses on the support page."
+          "body": "For questions about this policy, or to exercise your PDPA rights, contact {company} on LINE or by email at {email}. We respond within 30 days."
         }
       }
     },
@@ -375,11 +378,11 @@
         },
         "noAdvice": {
           "title": "Not investment advice",
-          "body": "Everything on this website — the strategy explanations, backtest results, and any consultation given over LINE or Telegram — exists to explain how the software works.\n\nNone of it constitutes investment advice, a solicitation, or a guarantee of returns. AURUM TECH is not a licensed financial advisor."
+          "body": "Everything on this website — the strategy explanations, backtest results, and any consultation given over LINE or Telegram — exists to explain how the software works.\n\nNone of it constitutes investment advice, a solicitation, or a guarantee of returns. {company} is not a licensed financial advisor."
         },
         "contact": {
           "title": "Questions about risk",
-          "body": "We are happy to walk through the strategy's risks in detail before you decide. Message us on LINE during support hours."
+          "body": "We are happy to walk through the strategy's risks in detail before you decide. Message {company} on LINE during support hours, or email {email}."
         }
       }
     },
@@ -413,7 +416,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "Send a refund request, or ask about this policy, on LINE or by email at the addresses on the support page."
+          "body": "Send a refund request, or ask about this policy, on LINE or by email at {email}."
         }
       }
     },

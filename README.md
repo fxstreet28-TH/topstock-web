@@ -161,11 +161,20 @@ figures, no countdown timers, and no guarantee language.
 
 These are stubbed and need real values before launch:
 
+> The legal pages are publishable but **not complete**: a terms document that
+> does not state the operator's registered address, and a privacy policy that
+> does not identify the data controller's address, fall short of what the PDPA
+> and Thai e-commerce registration expect. Fill the two fields below.
+
 - AURUM TECH logo (SVG) and a Topstock wordmark — currently a generated mark in `components/logo.tsx`
 - Real backtest data (Strategy Tester export) — the backtest section currently
   ships a deliberate empty state and publishes no figures at all
 - EA panel screenshots
 - Real LINE official account ID — `lib/site.ts` currently holds a placeholder
 - Trial length and trial-delivery mechanics
-- Registered company name, address and jurisdiction for the legal pages
+- **Registered address and ทะเบียนพาณิชย์ number** — the last two unfilled
+  legal fields. `lib/site.ts` → `COMPANY` holds them bracketed, and the legal
+  pages flag any bracketed value with a warning chip so it cannot be mistaken
+  for a real registration. Operator name (AURUM TECH), jurisdiction (Thailand)
+  and contact email are set.
 - Registered payment details for the manual-payment step (bank / PromptPay)

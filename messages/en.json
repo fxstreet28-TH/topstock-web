@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "primary": "Primary",
+    "home": "Topstock EA — home",
+    "howItWorks": "How it works",
+    "backtest": "Backtest",
+    "pricing": "Pricing",
+    "brokers": "Brokers",
+    "faq": "FAQ",
+    "cta": "Get Topstock",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageLabel": "Change language",
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "tagline": "The MetaTrader 5 Expert Advisor engineered exclusively for NASDAQ 100 and US 30.",
+    "telegram": "Telegram community",
+    "rights": "All rights reserved.",
+    "builtBy": "A product of",
+    "columns": {
+      "product": "Product",
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "links": {
+      "howItWorks": "How it works",
+      "backtest": "Backtest results",
+      "pricing": "Pricing",
+      "setup": "Setup guide",
+      "brokers": "Brokers",
+      "faq": "FAQ",
+      "support": "Support",
+      "activate": "Activate license",
+      "terms": "Terms of service",
+      "privacy": "Privacy policy",
+      "risk": "Risk disclosure",
+      "refund": "Refund policy"
+    }
+  },
+  "legal": {
+    "riskWarning": {
+      "title": "Risk Warning",
+      "body": "Trading contracts for difference (CFDs) on indices carries substantial risk of loss and is not suitable for all investors. You may lose more than your initial deposit. Past performance of Topstock EA does not guarantee future results. Automated trading systems, including Topstock, can experience losses during adverse market conditions, gaps, and periods of low liquidity. Ensure you fully understand the risks before deploying any Expert Advisor with real capital. AURUM TECH is not a licensed financial advisor. Topstock is a software product, not investment advice."
+    }
+  },
+  "common": {
+    "comingSoon": "Coming soon",
+    "learnMore": "Learn more",
+    "backHome": "Back to home"
+  },
+  "metadata": {
+    "title": "Topstock EA — MetaTrader 5 Expert Advisor for NASDAQ 100 & US 30",
+    "description": "Purpose-built EA for index trading. BUY-only hedge grid strategy with Fast Points Trail. Cent-account compatible. From $49/month.",
+    "titleTemplate": "%s — Topstock EA"
+  }
+}

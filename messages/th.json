@@ -431,7 +431,9 @@
   "metadata": {
     "title": "Topstock EA — Expert Advisor สำหรับ MetaTrader 5 บน NASDAQ 100 และ US 30",
     "description": "EA เทรด NASDAQ 100 และ US 30 โดยเฉพาะ. BUY-only hedge grid + Fast Points Trail. ทดลอง backtest ฟรี พร้อมคำปรึกษาก่อนตัดสินใจซื้อ. ฿4,900 ครั้งเดียว.",
-    "titleTemplate": "%s — Topstock EA"
+    "titleTemplate": "%s — Topstock EA",
+    "ogKicker": "Topstock EA v1.1",
+    "ogTitle": "EA ที่ออกแบบมาเพื่อ NASDAQ 100 และ US 30 โดยเฉพาะ"
   },
   "trial": {
     "eyebrow": "ฟรี ไม่มีข้อผูกมัด",

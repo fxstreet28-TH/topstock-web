@@ -8,6 +8,7 @@ import { routing, type Locale } from '@/lib/routing';
 import { siteConfig } from '@/lib/site';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
+import { Analytics } from '@/components/analytics';
 import '../globals.css';
 
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -108,6 +109,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

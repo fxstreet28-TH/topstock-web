@@ -95,7 +95,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-ink-secondary transition-colors hover:text-brand-gold"
+                      className="link-underline text-sm text-ink-secondary transition-colors hover:text-brand-gold"
                     >
                       {t(`links.${link.key}`)}
                     </Link>

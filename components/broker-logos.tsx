@@ -23,7 +23,7 @@ export function BrokerLogos() {
           {brokers.map((broker) => (
             <li
               key={broker.id}
-              className="flex flex-col items-center justify-center gap-1.5 bg-surface-elevated px-4 py-8"
+              className="hover-lift flex flex-col items-center justify-center gap-1.5 bg-surface-elevated px-4 py-8"
             >
               <span className="font-display text-lg font-semibold tracking-tight text-ink-secondary">
                 {broker.name}

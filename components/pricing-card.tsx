@@ -4,6 +4,7 @@ import { Check } from 'lucide-react';
 import { PRICING, siteConfig } from '@/lib/site';
 import { LineCta } from '@/components/line-cta';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { Reveal } from '@/components/reveal';
 
 /** One product, one price — there is nothing to compare, so there is no table. */
 export function PricingCard() {
@@ -12,9 +13,11 @@ export function PricingCard() {
   return (
     <section id="pricing" className="section border-b border-surface-border scroll-mt-24">
       <div className="container">
-        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
+        <Reveal>
+          <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
+        </Reveal>
 
-        <div className="mx-auto mt-14 max-w-lg">
+        <Reveal className="mx-auto mt-14 max-w-lg" delay={80}>
           <div className="relative overflow-hidden rounded-2xl border border-brand-gold/30 bg-surface-elevated shadow-glow-gold">
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent"
@@ -54,7 +57,7 @@ export function PricingCard() {
           </div>
 
           <p className="mt-6 text-center text-sm leading-relaxed text-ink-tertiary">{t('note')}</p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

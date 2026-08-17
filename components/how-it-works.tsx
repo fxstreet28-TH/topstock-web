@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 
 import { strategySpec } from '@/lib/site';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { Reveal } from '@/components/reveal';
 
 const STEPS = ['entry', 'confirm', 'recovery', 'exit'] as const;
 const SAFETY = ['selfHealing', 'noLockLoss', 'iterationCap', 'phaseManagement'] as const;
@@ -24,17 +25,21 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="section border-b border-surface-border scroll-mt-24">
       <div className="container">
-        <SectionHeading
-          eyebrow={t('eyebrow')}
-          title={t('title')}
-          description={t('description')}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            title={t('title')}
+            description={t('description')}
+          />
+        </Reveal>
 
         <ol className="mt-14 grid gap-6 md:grid-cols-2">
           {STEPS.map((key, i) => (
-            <li
+            <Reveal
               key={key}
-              className="relative flex flex-col gap-3 rounded-xl border border-surface-border bg-surface-elevated p-7 transition-colors hover:border-brand-gold/20"
+              as="li"
+              delay={i * 80}
+              className="hover-lift relative flex flex-col gap-3 rounded-xl border border-surface-border bg-surface-elevated p-7"
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="eyebrow">{t('stepLabel', { n: i + 1 })}</span>
@@ -46,7 +51,7 @@ export function HowItWorks() {
               <p className="text-[0.9375rem] leading-relaxed text-ink-secondary">
                 {t(`items.${key}.body`)}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ol>
 

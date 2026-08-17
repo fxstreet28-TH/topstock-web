@@ -71,7 +71,7 @@ export function Nav() {
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <Button asChild size="sm">
-            <Link href="/checkout">{t('cta')}</Link>
+            <Link href="/trial">{t('cta')}</Link>
           </Button>
         </div>
 
@@ -105,7 +105,7 @@ export function Nav() {
             ))}
             <li className="pb-2 pt-3">
               <Button asChild className="w-full" size="lg">
-                <Link href="/checkout">{t('cta')}</Link>
+                <Link href="/trial">{t('cta')}</Link>
               </Button>
             </li>
           </ul>

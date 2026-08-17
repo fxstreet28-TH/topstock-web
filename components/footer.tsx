@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Mail, Send } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 import { Link } from '@/lib/navigation';
 import { siteConfig } from '@/lib/site';
@@ -56,13 +56,13 @@ export function Footer() {
                 {siteConfig.supportEmail}
               </a>
               <a
-                href={siteConfig.social.telegram}
+                href={siteConfig.social.line}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-ink-secondary transition-colors hover:text-brand-gold"
               >
-                <Send className="size-4" aria-hidden="true" />
-                {t('telegram')}
+                <MessageCircle className="size-4" aria-hidden="true" />
+                {t('line', { id: siteConfig.social.lineId })}
               </a>
             </div>
           </div>

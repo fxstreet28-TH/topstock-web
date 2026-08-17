@@ -1,8 +1,8 @@
 /**
  * Single source of truth for site-wide constants.
  *
- * NOTE: pricing figures, support handles and company details are pending
- * confirmation from the product owner — see README "Pending inputs".
+ * NOTE: contact handles and company details are pending confirmation from the
+ * product owner — see README "Pending inputs".
  */
 
 export const siteConfig = {
@@ -13,37 +13,39 @@ export const siteConfig = {
   version: '1.1',
   supportEmail: 'support@topstock.aurumtech.co',
   social: {
+    /** Primary contact channel. */
+    line: 'https://line.me/R/ti/p/@aurumtech',
+    lineId: '@aurumtech',
     telegram: 'https://t.me/aurumtech',
-    discord: 'https://discord.gg/aurumtech',
   },
 } as const;
 
-export type PlanId = 'starter' | 'pro' | 'lifetime';
+/**
+ * Single one-time price. There are no tiers — the whole product is one
+ * purchase, quoted in Thai baht.
+ */
+export const pricing = {
+  amount: 4900,
+  currency: 'THB',
+  /** ISO code kept separate from the display symbol for Intl formatting. */
+  symbol: '฿',
+  /** 'once' — no subscription, no renewal. */
+  billing: 'once',
+} as const;
 
-export interface Plan {
-  id: PlanId;
-  /** USD, whole dollars. */
-  price: number;
-  /** Billing period label key suffix, resolved through i18n. */
-  interval: 'month' | 'sixMonths' | 'once';
-  activations: number;
-  /** Marks the visually highlighted card. */
-  featured: boolean;
-  /** Number of bullet points held in messages/{locale}.json under pricing.plans.<id>.features */
-  featureCount: number;
+/**
+ * Formats the price for display, e.g. "฿4,900".
+ * Uses en-US grouping deliberately: Thai and English both render 4,900 the
+ * same way, so the output is locale-stable.
+ */
+export function formatPrice(amount: number = pricing.amount): string {
+  return `${pricing.symbol}${amount.toLocaleString('en-US')}`;
 }
 
-export const plans: Plan[] = [
-  { id: 'starter', price: 49, interval: 'month', activations: 1, featured: false, featureCount: 5 },
-  { id: 'pro', price: 249, interval: 'sixMonths', activations: 3, featured: true, featureCount: 5 },
-  { id: 'lifetime', price: 799, interval: 'once', activations: 999, featured: false, featureCount: 5 },
-];
-
-export function getPlan(id: PlanId): Plan {
-  const plan = plans.find((p) => p.id === id);
-  if (!plan) throw new Error(`Unknown plan: ${id}`);
-  return plan;
-}
-
-/** Lowest advertised price, used in meta descriptions and hero CTAs. */
-export const entryPrice = Math.min(...plans.map((p) => p.price));
+/**
+ * The sales funnel. This is a consultative, manual flow — there is no
+ * automated checkout in the MVP. Each stage maps to a step in the
+ * "how to buy" section on the landing page.
+ */
+export const salesFlow = ['trial', 'consult', 'payment', 'license'] as const;
+export type SalesStage = (typeof salesFlow)[number];

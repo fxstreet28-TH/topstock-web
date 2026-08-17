@@ -7,7 +7,7 @@
     "pricing": "Pricing",
     "brokers": "Brokers",
     "faq": "FAQ",
-    "cta": "Get Topstock",
+    "cta": "Start free trial",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "languageLabel": "Change language",
@@ -15,7 +15,6 @@
   },
   "footer": {
     "tagline": "The MetaTrader 5 Expert Advisor engineered exclusively for NASDAQ 100 and US 30.",
-    "telegram": "Telegram community",
     "rights": "All rights reserved.",
     "builtBy": "A product of",
     "columns": {
@@ -36,7 +35,8 @@
       "privacy": "Privacy policy",
       "risk": "Risk disclosure",
       "refund": "Refund policy"
-    }
+    },
+    "line": "LINE {id}"
   },
   "legal": {
     "riskWarning": {
@@ -51,7 +51,7 @@
   },
   "metadata": {
     "title": "Topstock EA — MetaTrader 5 Expert Advisor for NASDAQ 100 & US 30",
-    "description": "Purpose-built EA for index trading. BUY-only hedge grid strategy with Fast Points Trail. Cent-account compatible. From $49/month.",
+    "description": "Purpose-built EA for index trading. BUY-only hedge grid strategy with Fast Points Trail. Cent-account compatible. Free trial first — one-time ฿4,900, lifetime access.",
     "titleTemplate": "%s — Topstock EA"
   }
 }

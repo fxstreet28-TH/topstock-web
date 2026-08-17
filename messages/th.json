@@ -7,7 +7,7 @@
     "pricing": "ราคา",
     "brokers": "โบรกเกอร์",
     "faq": "คำถามที่พบบ่อย",
-    "cta": "สั่งซื้อ Topstock",
+    "cta": "ทดลองใช้ฟรี",
     "openMenu": "เปิดเมนู",
     "closeMenu": "ปิดเมนู",
     "languageLabel": "เปลี่ยนภาษา",
@@ -15,7 +15,6 @@
   },
   "footer": {
     "tagline": "Expert Advisor สำหรับ MetaTrader 5 ที่ออกแบบมาเพื่อ NASDAQ 100 และ US 30 โดยเฉพาะ",
-    "telegram": "คอมมูนิตี้ Telegram",
     "rights": "สงวนลิขสิทธิ์",
     "builtBy": "ผลิตภัณฑ์จาก",
     "columns": {
@@ -36,7 +35,8 @@
       "privacy": "นโยบายความเป็นส่วนตัว",
       "risk": "คำเตือนความเสี่ยง",
       "refund": "นโยบายการคืนเงิน"
-    }
+    },
+    "line": "LINE {id}"
   },
   "legal": {
     "riskWarning": {
@@ -51,7 +51,7 @@
   },
   "metadata": {
     "title": "Topstock EA — Expert Advisor สำหรับ MetaTrader 5 บน NASDAQ 100 และ US 30",
-    "description": "EA ที่สร้างมาเพื่อเทรดดัชนีโดยเฉพาะ กลยุทธ์ hedge grid ฝั่ง BUY พร้อมระบบ Fast Points Trail รองรับบัญชี Cent เริ่มต้น $49/เดือน",
+    "description": "EA ที่สร้างมาเพื่อเทรดดัชนีโดยเฉพาะ กลยุทธ์ hedge grid ฝั่ง BUY พร้อมระบบ Fast Points Trail รองรับบัญชี Cent ทดลองใช้ฟรีก่อนตัดสินใจ จ่ายครั้งเดียว ฿4,900 ใช้ได้ตลอดชีพ",
     "titleTemplate": "%s — Topstock EA"
   }
 }

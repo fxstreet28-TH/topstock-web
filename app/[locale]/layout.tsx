@@ -32,6 +32,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  // Thai is the default locale, so it sits on unprefixed paths; English is /en.
+  const pathFor = (l: string) => (l === routing.defaultLocale ? '/' : `/${l}`);
+
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
@@ -41,10 +44,10 @@ export async function generateMetadata({
     description: t('description'),
     applicationName: siteConfig.name,
     alternates: {
-      canonical: locale === routing.defaultLocale ? '/' : `/${locale}`,
+      canonical: pathFor(locale),
       languages: {
-        en: '/',
-        th: '/th',
+        th: pathFor('th'),
+        en: pathFor('en'),
       },
     },
     openGraph: {
@@ -52,7 +55,7 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title: t('title'),
       description: t('description'),
-      url: locale === routing.defaultLocale ? '/' : `/${locale}`,
+      url: pathFor(locale),
       locale: locale === 'th' ? 'th_TH' : 'en_US',
     },
     twitter: {

@@ -25,6 +25,19 @@ cp .env.example .env.local   # only the four LINE/contact vars are required
 npm run dev
 ```
 
+### Environment variables
+
+On Vercel, set each variable for **every** environment you deploy to
+(Production, Preview, and Development). A variable scoped to Production alone
+is absent from branch/preview builds.
+
+Public variables are read through `lib/env.ts`, which treats a blank or
+whitespace-only value as missing and falls back to a working default — a
+declared-but-unset variable arrives as `''`, and `??` does not catch that.
+`readUrlEnv` additionally rejects a value that will not parse as a URL. The
+build therefore succeeds with every variable blank, missing, or malformed;
+nothing about deployment can fail on configuration alone.
+
 **Deploying the MVP needs four environment variables** — `NEXT_PUBLIC_LINE_ID`,
 `NEXT_PUBLIC_LINE_QR_URL`, `NEXT_PUBLIC_TELEGRAM_URL`, and
 `NEXT_PUBLIC_SUPPORT_EMAIL`. Supabase and Resend are optional and only gate

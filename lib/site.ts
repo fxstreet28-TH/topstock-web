@@ -1,3 +1,5 @@
+import { readEnv, readUrlEnv } from '@/lib/env';
+
 /**
  * Single source of truth for site-wide constants.
  *
@@ -9,7 +11,7 @@ export const siteConfig = {
   name: 'Topstock EA',
   parentBrand: 'AURUM TECH',
   parentUrl: 'https://aurumtech.co',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://topstock.aurumtech.co',
+  url: readUrlEnv(process.env.NEXT_PUBLIC_SITE_URL, 'https://topstock.aurumtech.co'),
   version: '1.1',
 } as const;
 
@@ -39,11 +41,11 @@ export const PRICING = {
 } as const;
 
 export const CONTACT = {
-  line: process.env.NEXT_PUBLIC_LINE_ID ?? '@aurumtech',
-  lineUrl: process.env.NEXT_PUBLIC_LINE_QR_URL ?? 'https://line.me/R/ti/p/@aurumtech',
+  line: readEnv(process.env.NEXT_PUBLIC_LINE_ID, '@aurumtech'),
+  lineUrl: readUrlEnv(process.env.NEXT_PUBLIC_LINE_QR_URL, 'https://line.me/R/ti/p/@aurumtech'),
   telegram: 'aurumtech_support',
-  telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/aurumtech_support',
-  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? 'support@topstock.aurumtech.co',
+  telegramUrl: readUrlEnv(process.env.NEXT_PUBLIC_TELEGRAM_URL, 'https://t.me/aurumtech_support'),
+  email: readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, 'support@topstock.aurumtech.co'),
   supportHours: 'Mon-Fri 9:00-18:00 ICT',
 } as const;
 

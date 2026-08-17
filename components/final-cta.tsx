@@ -1,9 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-
-import { Link } from '@/lib/navigation';
-import { CONTACT } from '@/lib/site';
-import { Button } from '@/components/ui/button';
+import { LineCta } from '@/components/line-cta';
 
 export function FinalCta() {
   const t = useTranslations('home.finalCta');
@@ -23,20 +19,7 @@ export function FinalCta() {
             {t('description')}
           </p>
 
-          <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button asChild size="lg">
-              <Link href="/trial">
-                {t('ctaPrimary')}
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary">
-              <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle aria-hidden="true" />
-                {t('ctaSecondary')}
-              </a>
-            </Button>
-          </div>
+          <LineCta label={t('ctaPrimary')} className="mt-9 w-full sm:w-auto" />
         </div>
         {/*
           The footer's compact risk disclaimer renders directly below this

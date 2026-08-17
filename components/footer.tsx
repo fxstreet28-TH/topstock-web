@@ -4,7 +4,7 @@ import { Mail, MessageCircle, Send } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { CONTACT, siteConfig } from '@/lib/site';
 import { Logo } from '@/components/logo';
-import { RiskDisclaimer } from '@/components/risk-disclaimer';
+import { FooterRiskDisclaimer } from '@/components/footer-risk-disclaimer';
 
 const columns = [
   {
@@ -113,7 +113,7 @@ export function Footer() {
           <p className="mt-3 text-sm text-ink-secondary">{t('paymentMethods')}</p>
         </div>
 
-        <RiskDisclaimer variant="compact" className="mt-10 border-t border-surface-border pt-8" />
+        <FooterRiskDisclaimer className="mt-10 border-t border-surface-border pt-8" />
 
         <div className="mt-8 flex flex-col gap-3 border-t border-surface-border pt-8 text-xs text-ink-tertiary sm:flex-row sm:items-center sm:justify-between">
           <p>

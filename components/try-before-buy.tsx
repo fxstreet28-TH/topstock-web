@@ -1,8 +1,7 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, BarChart3, MessagesSquare, CheckCircle2 } from 'lucide-react';
+import { BarChart3, MessagesSquare, CheckCircle2 } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
-import { Button } from '@/components/ui/button';
+import { LineCta } from '@/components/line-cta';
 import { SectionHeading } from '@/components/ui/section-heading';
 
 const STEPS = [
@@ -62,12 +61,7 @@ export function TryBeforeBuy() {
         </ol>
 
         <div className="mt-12 flex justify-center">
-          <Button asChild size="lg">
-            <Link href="/trial">
-              {t('cta')}
-              <ArrowRight aria-hidden="true" />
-            </Link>
-          </Button>
+          <LineCta label={t('cta')} />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, LineChart } from 'lucide-react';
+import { LineChart, MessageCircle } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
+import { CONTACT } from '@/lib/site';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/section-heading';
 
@@ -95,10 +95,10 @@ export function BacktestSection() {
               ))}
               <div className="flex items-center bg-surface-elevated p-5">
                 <Button asChild variant="ghost" size="sm" className="px-0">
-                  <Link href="/trial">
+                  <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle aria-hidden="true" />
                     {t('cta')}
-                    <ArrowRight aria-hidden="true" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </dl>

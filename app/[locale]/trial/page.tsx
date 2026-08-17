@@ -4,6 +4,7 @@ import { BarChart3, Clock, ShieldCheck } from 'lucide-react';
 
 import { routing, type Locale } from '@/lib/routing';
 import { LineQr } from '@/components/line-qr';
+import { LineBanner } from '@/components/line-banner';
 import { TrialPanel } from '@/components/trial-panel';
 
 export function generateStaticParams() {
@@ -55,7 +56,9 @@ export default async function TrialPage({ params }: { params: Promise<{ locale: 
             </p>
           </div>
 
-          <ul className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
+          <LineBanner className="mt-10" />
+
+          <ul className="mx-auto mt-8 grid max-w-2xl gap-4 sm:grid-cols-3">
             {ASSURANCES.map(({ key, Icon }) => (
               <li
                 key={key}

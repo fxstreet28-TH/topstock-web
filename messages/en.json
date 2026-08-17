@@ -7,7 +7,7 @@
     "pricing": "Pricing",
     "brokers": "Brokers",
     "faq": "FAQ",
-    "cta": "Request Free Backtest",
+    "cta": "Contact us on LINE",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "languageLabel": "Change language",
@@ -48,7 +48,7 @@
       "badge": "Topstock EA v{version}",
       "title": "The Expert Advisor built exclusively for <gold>NASDAQ 100 & US 30</gold>",
       "subtitle": "BUY-only hedge grid strategy with Fast Points Trail — tuned exclusively for US tech index volatility. Compatible with cent accounts from $10 · Try a free backtest before you buy.",
-      "ctaPrimary": "Request Free Backtest",
+      "ctaPrimary": "Contact us on LINE",
       "ctaSecondary": "See how it works",
       "trust": {
         "built": "Built exclusively for NAS100 + US30",
@@ -131,7 +131,7 @@
       "title": "Try before you commit",
       "description": "We don't sell directly. Everyone starts with a free backtest and a conversation with the team.",
       "stepLabel": "Step {n}",
-      "cta": "Request Free Backtest",
+      "cta": "Ask for a free backtest on LINE",
       "items": {
         "backtest": {
           "title": "Request a free backtest",
@@ -153,7 +153,7 @@
       "description": "The full Strategy Tester report is being verified. We've chosen to show no figures at all until we can stand behind them. In the meantime, you can request a free backtest on your own broker's data.",
       "emptyState": "Awaiting verified data",
       "emptyStateHint": "The equity curve will appear here once the data is confirmed.",
-      "cta": "Request a backtest on your data",
+      "cta": "Ask for a backtest on LINE",
       "metrics": {
         "return": "Total return",
         "drawdown": "Max drawdown",
@@ -178,7 +178,7 @@
       "title": "One price. No hidden costs.",
       "productName": "TOPSTOCK EA v{version}",
       "billingNote": "one-time",
-      "cta": "Request Free Backtest",
+      "cta": "Ask for a free backtest on LINE",
       "paymentLabel": "Pay via",
       "paymentMethods": "PromptPay · Bank transfer · Stripe (international)",
       "note": "Launch pricing — license count limited to ensure support quality.",
@@ -242,11 +242,181 @@
     "finalCta": {
       "title": "Start with a free backtest. No commitment.",
       "description": "Send us your broker and the symbol you're interested in. We'll run the backtest and get back to you within 24 hours.",
-      "ctaPrimary": "Request Free Backtest",
-      "ctaSecondary": "Chat on LINE"
+      "ctaPrimary": "Start on LINE"
     }
   },
   "legal": {
+    "common": {
+      "eyebrow": "Legal",
+      "lastUpdated": "Last updated {date}",
+      "registrationNo": "Registration no.",
+      "jurisdiction": "Jurisdiction",
+      "notLegalAdvice": "This document is published for transparency about our service. It is not legal advice. If you have questions about your rights, please consult a qualified legal professional."
+    },
+    "terms": {
+      "title": "Terms of service",
+      "summary": "The terms covering use of this website and the Topstock EA software.",
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance of terms",
+          "body": "By using this website, or by purchasing and using the Topstock EA software, you confirm that you have read and accept these terms in full. If you do not accept any part of them, please stop using the website and the software."
+        },
+        "licence": {
+          "title": "Licence granted",
+          "body": "On full payment you receive a perpetual, non-exclusive, non-transferable licence to use Topstock EA on your own MetaTrader 5 accounts, with no limit on the number of accounts.\n\nThe licence covers every update in the v1.x line. Ownership and all intellectual property in the software remain with AURUM TECH."
+        },
+        "permitted": {
+          "title": "What you may do",
+          "body": "You may install and run the software on any number of your own MetaTrader 5 accounts, demo or live; adjust every parameter on the input tab to suit your account and risk tolerance; and keep backup copies for your own use."
+        },
+        "prohibited": {
+          "title": "What you may not do",
+          "body": "You may not resell, rent, distribute, publish, or pass the software files to any other person in any form.\n\nYou may not reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code.\n\nYou may not use the software as part of a fund-management service for third parties without our written consent.\n\nBreaching any of these entitles us to terminate your licence immediately without refund."
+        },
+        "noAdvice": {
+          "title": "Not investment advice",
+          "body": "Topstock EA is a software tool that executes a defined set of rules. It is not investment advice, not a solicitation to trade any instrument, and not a fund-management service.\n\nAURUM TECH is not a licensed financial advisor, broker, or fund manager. The decision to use the software, and all risk arising from it, is yours alone."
+        },
+        "availability": {
+          "title": "Availability",
+          "body": "We aim to keep the website and support available continuously, but we do not warrant uninterrupted service.\n\nThe software's operation depends on factors outside our control, including the MetaTrader 5 platform, your broker's servers and terms, your internet connection, and market liquidity."
+        },
+        "liability": {
+          "title": "Limitation of liability",
+          "body": "To the fullest extent permitted by law, AURUM TECH is not liable for any damages arising from use of the software, including trading losses, lost opportunity, or indirect damages.\n\nOur total aggregate liability in any circumstance will not exceed the amount you paid for the software."
+        },
+        "termination": {
+          "title": "Termination",
+          "body": "Your licence terminates immediately if you breach these terms, in particular the prohibitions in section 4.\n\nYou may stop using the software at any time by removing it from all accounts and devices. Where a refund is issued within 30 days, the licence ends when the refund completes."
+        },
+        "governing": {
+          "title": "Governing law",
+          "body": "These terms are governed by the laws of Thailand, and any dispute falls within the jurisdiction of the Thai courts.\n\nIf any provision is held unenforceable, the remaining provisions continue in full effect."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For questions about these terms, contact us on LINE or by email at the addresses on the support page."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "summary": "What we collect, how we use it, and your rights.",
+      "sections": {
+        "scope": {
+          "title": "Scope",
+          "body": "This policy describes how AURUM TECH collects, uses, and protects personal data belonging to visitors of this website and customers of Topstock EA, under Thailand's Personal Data Protection Act B.E. 2562 (PDPA)."
+        },
+        "collected": {
+          "title": "What we collect",
+          "body": "This website has no accounts and requires no registration. We collect only what you volunteer:\n\n· What you enter in the backtest request form — name, email, LINE ID or Telegram, your broker, the symbol you're interested in, timeframe, experience level, and any message.\n\n· What you send us over LINE, Telegram, or email while we talk.\n\n· The payment details needed to confirm an order and issue documents.\n\nWe do not collect trading account passwords, card numbers, or any credentials for your MetaTrader account."
+        },
+        "purpose": {
+          "title": "How we use it",
+          "body": "We use your data to reply to your enquiry, produce and send your backtest report, advise you before and after purchase, deliver the software and its updates, and provide support.\n\nWe do not use it for automated marketing, and we do not send promotional email you did not ask for."
+        },
+        "legalBasis": {
+          "title": "Legal basis",
+          "body": "We process your data on the basis of the consent you give when submitting a form or contacting us, and on the basis of contract performance for customers who have purchased. You may withdraw consent at any time."
+        },
+        "sharing": {
+          "title": "Disclosure",
+          "body": "We do not sell, rent, or trade your personal data to third parties for marketing.\n\nWe use external providers only as far as operations require — website hosting, database hosting, and email delivery — each with access limited to what is necessary and bound by confidentiality.\n\nWe disclose data to authorities only where legally compelled."
+        },
+        "retention": {
+          "title": "Retention",
+          "body": "Data from enquiries that do not lead to a purchase is kept for no more than 12 months after last contact.\n\nCustomer data is kept for as long as we provide support, and for the periods required by accounting and tax law."
+        },
+        "rights": {
+          "title": "Your rights",
+          "body": "Under the PDPA you have the right to access your data, obtain a copy, correct it, erase it, restrict its processing, object to processing, and withdraw consent.\n\nContact us on LINE or by email to exercise any of these. We respond within 30 days."
+        },
+        "cookies": {
+          "title": "Cookies and analytics",
+          "body": "This website uses no tracking or advertising cookies, and does not use Google Analytics.\n\nWhere analytics are used, we choose cookie-free tools that collect no personally identifying information, such as Plausible or Vercel Analytics."
+        },
+        "security": {
+          "title": "Security",
+          "body": "All connections to the website are encrypted with HTTPS. Stored data sits in a database restricted to server-side access and unreachable from any user's browser."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For questions about this policy, or to exercise your PDPA rights, contact us on LINE or by email at the addresses on the support page."
+        }
+      }
+    },
+    "risk": {
+      "title": "Risk disclosure",
+      "summary": "Please read carefully before running Topstock EA with real capital.",
+      "sections": {
+        "warning": {
+          "title": "Risk warning",
+          "body": "Trading contracts for difference (CFDs) on indices carries substantial risk of loss and is not suitable for all investors. You may lose more than your initial deposit. Past performance of Topstock EA does not guarantee future results. Automated trading systems, including Topstock, can experience losses during adverse market conditions, gaps, and periods of low liquidity. Ensure you fully understand the risks before deploying any Expert Advisor with real capital. AURUM TECH is not a licensed financial advisor. Topstock is a software product, not investment advice."
+        },
+        "nature": {
+          "title": "The nature of index CFD risk",
+          "body": "The NASDAQ 100 and US 30 are highly volatile instruments, moving 500-800 points in an ordinary day and far more around major economic releases or unexpected events.\n\nTrading with leverage magnifies both gains and losses. You can lose the entire balance of your account in a short period."
+        },
+        "grid": {
+          "title": "Risks specific to grid strategies",
+          "body": "Topstock averages into positions using a grid, opening further positions as price moves against it.\n\nThis carries characteristics you need to understand: floating loss deepens with the distance price travels against you, and if price runs against the position further than your capital can support, it can lead to a margin call or a forced stop out, realising a substantial loss.\n\nCapping hedge levels with the InpRecMaxLevel parameter helps control this, but does not remove it."
+        },
+        "automation": {
+          "title": "Risks from automation",
+          "body": "An automated system depends on technical factors the software cannot control: your internet connection, the stability of your VPS or computer, your broker's server availability, execution latency, requotes, and slippage.\n\nAny of these can cause the system to behave differently from its design, and to affect your results."
+        },
+        "backtest": {
+          "title": "Limits of backtest results",
+          "body": "Backtests are calculated from historical data under simulated conditions, which cannot fully reproduce live trading.\n\nThings a backtest commonly fails to reflect include real slippage during volatile periods, spread widening around news, broker order rejections, and connection latency.\n\nPast performance neither indicates nor guarantees future performance in any circumstance."
+        },
+        "suitability": {
+          "title": "Whether it suits you",
+          "body": "CFD trading is not suitable for everyone. Before deciding, consider your investment objectives, level of experience, financial position, and appetite for risk.\n\nUse only money you accept you could lose in full. Do not use savings you need to live on, borrowed money, or funds already committed elsewhere.\n\nIf you are unsure, seek independent advice from a licensed financial advisor."
+        },
+        "noAdvice": {
+          "title": "Not investment advice",
+          "body": "Everything on this website — the strategy explanations, backtest results, and any consultation given over LINE or Telegram — exists to explain how the software works.\n\nNone of it constitutes investment advice, a solicitation, or a guarantee of returns. AURUM TECH is not a licensed financial advisor."
+        },
+        "contact": {
+          "title": "Questions about risk",
+          "body": "We are happy to walk through the strategy's risks in detail before you decide. Message us on LINE during support hours."
+        }
+      }
+    },
+    "refund": {
+      "title": "Refund policy",
+      "summary": "A 30-day satisfaction guarantee — the terms and how to claim.",
+      "sections": {
+        "guarantee": {
+          "title": "The 30-day guarantee",
+          "body": "If you are not satisfied with Topstock EA, you can request a full refund within 30 days of receiving the software files.\n\nWe do not require you to prove a trading loss or show your results. Your dissatisfaction is reason enough."
+        },
+        "howTo": {
+          "title": "How to request one",
+          "body": "Contact us on LINE or by email at the addresses on the support page, with the name and email used for the order and the approximate payment date.\n\nWe welcome your reasons so we can improve the product, but giving them is not a condition of the refund."
+        },
+        "timing": {
+          "title": "How long it takes",
+          "body": "We acknowledge the request within 2 working days and refund through the method you originally paid with, within 7 working days of that acknowledgement.\n\nBank transfers and PromptPay arrive on the bank's normal settlement cycle. Stripe refunds depend on your card issuer, typically 5-10 working days."
+        },
+        "eligibility": {
+          "title": "Eligibility",
+          "body": "The request must be made within 30 days of the software files being delivered to you.\n\nOne refund is available per customer."
+        },
+        "exclusions": {
+          "title": "Exclusions",
+          "body": "We reserve the right to decline a refund where the terms of service have been breached — for example, distributing or reselling the software files, or attempting to reverse engineer them.\n\nTrading losses are not an exclusion: you may still request a refund within 30 days as normal."
+        },
+        "licence": {
+          "title": "Your licence after a refund",
+          "body": "Once a refund completes, your licence ends. You agree to remove the software files from all of your MetaTrader accounts and devices."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "Send a refund request, or ask about this policy, on LINE or by email at the addresses on the support page."
+        }
+      }
+    },
     "riskWarning": {
       "title": "Risk Warning",
       "body": "Trading contracts for difference (CFDs) on indices carries substantial risk of loss and is not suitable for all investors. You may lose more than your initial deposit. Past performance of Topstock EA does not guarantee future results. Automated trading systems, including Topstock, can experience losses during adverse market conditions, gaps, and periods of low liquidity. Ensure you fully understand the risks before deploying any Expert Advisor with real capital. AURUM TECH is not a licensed financial advisor. Topstock is a software product, not investment advice."
@@ -334,6 +504,623 @@
       "addLine": "Add on LINE",
       "telegram": "Chat on Telegram",
       "supportHours": "Support hours {hours}"
+    }
+  },
+  "cta": {
+    "line": "Contact us on LINE",
+    "lineBacktest": "Ask for a free backtest on LINE",
+    "lineStart": "Start on LINE",
+    "lineConsult": "Ask us on LINE",
+    "orForm": "or fill in the form",
+    "bannerTitle": "Rather just talk?",
+    "bannerBody": "Message us on LINE right away — no form needed."
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "title": "How Topstock EA works",
+    "summary": "Every stage explained — entry, recovery, trailing, and exit — with the real parameter values taken from the EA source.",
+    "sourceNote": "Every figure on this page is copied straight from the EA source, not written for marketing. If you want to verify any of it before buying, ask us on LINE.",
+    "stageLabel": "Stage {n}",
+    "stages": {
+      "entry": {
+        "spec": "5 orders · last 20% of gap",
+        "title": "Anticipation Batch Entry",
+        "body": "Topstock reads direction from the EMA 20/50/100/200 structure of the AURUM PRO system.\n\nWhen price moves into the last 20% of the gap between EMA100 and EMA200, the system treats that as a zone with a high chance of reversal and opens a batch of 5 orders to anticipate it.\n\nThe batch direction is set by how EMA100 sits against EMA200 — not by an oscillator or a chart pattern."
+      },
+      "confirmation": {
+        "spec": "+1 order · EMA100 cross",
+        "title": "Cross Confirmation",
+        "body": "Once the anticipation batch is open, if price crosses EMA100 in the same direction as the batch, the system treats momentum as confirming the direction and adds one further order.\n\nThis Cross order carries different recovery terms from the ANT batch: its first hedge level sits at 1,000 points rather than 1,500. It entered on confirmation, so a shorter adverse move is expected."
+      },
+      "recovery": {
+        "spec": "6 grids · 1,500 / 1,000 pt",
+        "title": "Independent Grid Recovery",
+        "body": "Topstock runs 6 grids that are completely independent of one another. One grid entering recovery does not drag the others with it — each keeps its own hedge levels, profit target, and state.\n\nThe first hedge level triggers at 1,500 points adverse for the ANT batch, or 1,000 points for the Cross order. Every level after that steps every 1,000 points.\n\nThe important part: every hedge is a BUY. This is not symmetric hedging that opens against the position — it averages into the direction in which US indices have carried a long-term upward bias.\n\nYou cap the number of levels with the InpRecMaxLevel parameter; we recommend 8-10."
+      },
+      "trailing": {
+        "spec": "arms at +500 pt · trails 300 pt",
+        "title": "Fast Points Trail (new in v1.1)",
+        "body": "This is what v1.1 added, and the main reason Topstock handles indices better than a general-purpose EA.\n\nTrailing that relies on EMAs alone cannot keep up with an index moving 500-800 points a day. By the time the EMA has caught up, several hundred points of profit have already gone back to the market.\n\nFast Points Trail arms once profit reaches +500 points, then trails the stop 300 points behind current price — tight, and quick to react.\n\nIt runs alongside the original EMA-based trail rather than replacing it: whichever produces the tighter stop is the one that applies."
+      },
+      "exit": {
+        "spec": "300 pt × total lots × $/pt",
+        "title": "Dynamic Exit",
+        "body": "A grid closes as a whole when its net P/L reaches a target calculated dynamically: 300 points × the grid's total lots × the value per point.\n\nWhy the target has to scale: if a grid grows from 0.05 to 0.40 lots during recovery, a fixed target would close it far too early to justify the risk it carried. This formula makes a bigger grid require a proportionally bigger move.\n\nAnd because the target is measured on the whole grid's net P/L, the system never closes the winning orders and leaves the losing ones open."
+      }
+    },
+    "safety": {
+      "eyebrow": "Safety",
+      "title": "Safety layers built in",
+      "items": {
+        "selfHealing": {
+          "title": "Self-healing close",
+          "body": "When the broker rejects a close (requote, off quotes, market closed), the system retries automatically until it succeeds rather than leaving an order in a state nobody intended."
+        },
+        "noLockLoss": {
+          "title": "Never locks in losses",
+          "body": "The system does not automatically close a grid that is still net negative in order to \"cut the loss\". Closing happens on reaching the profit target only. Deciding to close at a loss is your call, not the EA's."
+        },
+        "iterationCap": {
+          "title": "30 iterations per tick",
+          "body": "Every piece of logic is capped at 30 iterations per tick as a hard ceiling, so neither a bug nor an abnormal market condition can leave the EA opening orders without end."
+        },
+        "phaseManagement": {
+          "title": "V2 phase management",
+          "body": "Each grid's state is tracked as a distinct phase, which keeps the original position intact through recovery instead of letting it disappear among the hedges added on top."
+        }
+      }
+    },
+    "parameters": {
+      "eyebrow": "Parameters",
+      "title": "Every default value",
+      "description": "These are the defaults, tuned for NAS100. All of them are adjustable on the EA's input tab.",
+      "colName": "Parameter",
+      "colValue": "Value",
+      "rows": {
+        "grids": "Independently managed grids",
+        "anticipationOrders": "Orders per anticipation batch",
+        "crossOrders": "Confirmation order on EMA100 cross",
+        "gapZone": "Entry zone (final part of EMA100→EMA200 gap)",
+        "hedgeAnt": "First hedge level — ANT batch",
+        "hedgeCross": "First hedge level — Cross order",
+        "hedgeStep": "Step between subsequent hedge levels",
+        "exitTarget": "Grid close target",
+        "trailActivation": "Fast Points Trail activation",
+        "trailDistance": "Trail distance behind price",
+        "iterationCap": "Iteration ceiling per tick"
+      }
+    },
+    "cta": {
+      "title": "Questions about the mechanism?",
+      "description": "Ask away. We're happy to walk through any part of the strategy before you decide.",
+      "button": "Ask us on LINE"
+    }
+  },
+  "backtestResults": {
+    "eyebrow": "Backtest",
+    "title": "Backtest results",
+    "summary": "We publish numbers only once they're verified. In the meantime, ask for a free backtest on your own broker's data.",
+    "emptyState": "Awaiting verified data",
+    "why": {
+      "title": "Why this page is still empty",
+      "body": "We've chosen not to show a sample chart or placeholder figures. On a trading product, a line that goes up is read as a promise of returns no matter what the caption says. The full Strategy Tester report is being verified, and once it is confirmed the real figures will replace every blank on this page."
+    },
+    "metrics": {
+      "return": "Total return",
+      "drawdown": "Max drawdown",
+      "profitFactor": "Profit factor",
+      "winRate": "Win rate",
+      "trades": "Total trades",
+      "duration": "Avg trade duration",
+      "recovery": "Recovery factor",
+      "sharpe": "Sharpe ratio"
+    },
+    "charts": {
+      "equity": {
+        "title": "Equity curve",
+        "description": "Account growth across the test period"
+      },
+      "drawdown": {
+        "title": "Drawdown",
+        "description": "Distance below the running equity peak"
+      },
+      "monthly": {
+        "title": "Monthly returns",
+        "description": "Profit and loss broken down by month"
+      }
+    },
+    "method": {
+      "eyebrow": "Methodology",
+      "title": "How we will test it",
+      "description": "Test conditions change results substantially, so we're stating ours before the numbers exist.",
+      "items": {
+        "data": {
+          "title": "Real M1 tick data",
+          "body": "Minute-level historical tick data from a live broker feed — not simulated or generated ticks."
+        },
+        "spread": {
+          "title": "Recorded spread",
+          "body": "The spread actually recorded in each period, not a flat figure lower than reality."
+        },
+        "model": {
+          "title": "Every tick based on real ticks",
+          "body": "The most detailed simulation mode in the MT5 Strategy Tester — the slowest to run, and the closest to reality."
+        },
+        "period": {
+          "title": "A period covering several market regimes",
+          "body": "The test window has to include rising, falling, and high-volatility markets, rather than being chosen because the result looks good."
+        }
+      }
+    },
+    "disclaimer": "Past performance does not guarantee future results. Backtest data is based on historical M1 tick data from a broker feed. Live results may vary due to spread, slippage, execution delay, and differences in liquidity between periods.",
+    "cta": {
+      "title": "Ask for a backtest on your own data",
+      "description": "Rather than look at our numbers, let us run Topstock on the broker data you actually trade and send you the report, free.",
+      "button": "Ask for a backtest on LINE"
+    }
+  },
+  "brokersPage": {
+    "eyebrow": "Brokers",
+    "title": "Recommended brokers",
+    "summary": "Topstock runs on any MT5 broker offering NAS100 or US30. Below are the ones our customers actually use, plus what to check before opening an account.",
+    "recommended": "Recommended to start",
+    "minDeposit": "Suggested minimum",
+    "symbolName": "Symbol name",
+    "disclosure": "This list contains no commission-bearing referral links. AURUM TECH has no business relationship with these brokers and receives nothing if you open an account. The recommendations come from hands-on use only. Please verify each broker's licensing and terms yourself before depositing.",
+    "brokers": {
+      "fbsCent": {
+        "name": "FBS Cent",
+        "accountType": "Cent account",
+        "body": "The starting point we recommend to everyone. A cent account lets you test the strategy with real money at very low risk, because one lot on a cent account is worth a hundredth of one on a standard account.",
+        "minDeposit": "$10",
+        "symbol": "US100 / US30",
+        "points": {
+          "0": "Test with real money at roughly $0.0001 of risk per point",
+          "1": "See how the EA really behaves, including slippage and spread a backtest never shows",
+          "2": "Move to a standard account with the same settings once you're confident"
+        }
+      },
+      "fbsStandard": {
+        "name": "FBS Standard",
+        "accountType": "Standard account",
+        "body": "Once the cent-account testing period is done, moving to a standard account at the same broker means no new symbol names, server times, or trading conditions to adjust to.",
+        "minDeposit": "$500",
+        "symbol": "US100 / US30",
+        "points": {
+          "0": "Same symbol names and server time as the cent account",
+          "1": "The EA settings you tested carry over directly",
+          "2": "More headroom for several grids at once as capital grows"
+        }
+      },
+      "exness": {
+        "name": "Exness",
+        "accountType": "Standard / Pro",
+        "body": "A common choice for Thai customers running live, because deposits and withdrawals through Thai banks are straightforward and index spreads are fairly tight during the main session.",
+        "minDeposit": "$500",
+        "symbol": "USTEC / US30",
+        "points": {
+          "0": "Deposits and withdrawals via Thai banks and PromptPay",
+          "1": "Tight index spreads while the US session is open",
+          "2": "The Pro account suits those who want the tightest spread available"
+        }
+      },
+      "xm": {
+        "name": "XM",
+        "accountType": "Standard account",
+        "body": "A stable option with several account types. Sensible if you already trade with XM and would rather not move broker.",
+        "minDeposit": "$500",
+        "symbol": "US100Cash / US30Cash",
+        "points": {
+          "0": "Hedging supported on all MT5 account types",
+          "1": "A Micro account is available for testing at smaller lot sizes",
+          "2": "Watch the Cash suffix on symbol names — it has to match exactly"
+        }
+      }
+    },
+    "symbols": {
+      "eyebrow": "Symbol names",
+      "title": "Same index, different names",
+      "description": "Every broker names the index symbols differently. Check yours before installing, or the EA will not run.",
+      "colBroker": "Broker",
+      "rows": {
+        "fbs": {
+          "broker": "FBS",
+          "nas": "US100",
+          "dow": "US30"
+        },
+        "exness": {
+          "broker": "Exness",
+          "nas": "USTEC",
+          "dow": "US30"
+        },
+        "xm": {
+          "broker": "XM",
+          "nas": "US100Cash",
+          "dow": "US30Cash"
+        },
+        "generic": {
+          "broker": "Other brokers",
+          "nas": "NAS100 / NDX100",
+          "dow": "DJ30 / WS30"
+        }
+      }
+    },
+    "checklist": {
+      "eyebrow": "Before you open an account",
+      "title": "Five things to check",
+      "description": "Not every MT5 account can run Topstock. Confirm these five with the broker's support before depositing.",
+      "items": {
+        "hedging": {
+          "title": "The account must be Hedging, not Netting",
+          "body": "Topstock holds several positions on the same symbol at once. A netting account merges them into a single position, which stops the grid system working at all. This is the most important item on the list, and it cannot be changed later."
+        },
+        "spread": {
+          "title": "Average spread on the index",
+          "body": "Ask for the average NAS100 spread while the US session is open. A spread that is too wide eats meaningfully into the 300-point target behind every close."
+        },
+        "stopLevel": {
+          "title": "Stop level and freeze level",
+          "body": "Some brokers enforce a minimum distance between current price and the stop loss. If that distance exceeds 300 points, Fast Points Trail cannot work as designed."
+        },
+        "contractSize": {
+          "title": "Contract size and value per point",
+          "body": "Check what one lot of NAS100 is worth per point. That value feeds directly into the close-target formula, and it varies a lot between brokers."
+        },
+        "sessions": {
+          "title": "Trading hours and breaks",
+          "body": "Indices have intraday breaks and close over the weekend. Check the broker's server time against your own so you know when the EA is actually active."
+        }
+      }
+    },
+    "cta": {
+      "title": "Not sure your broker will work?",
+      "description": "Send us the broker and account type and we'll tell you whether it runs, and what to configure.",
+      "button": "Ask about brokers on LINE"
+    }
+  },
+  "setup": {
+    "eyebrow": "Setup",
+    "title": "Installing Topstock EA",
+    "summary": "An overview of the five installation steps. The full guide, with screenshots and preset files, is delivered after purchase.",
+    "steps": {
+      "download": {
+        "title": "Download the EA file",
+        "body": "After payment you receive Topstock EA v1.1 (.ex5) along with preset files for NAS100 and US30, sent over LINE or by email.\n\nThe .ex5 file is already compiled — there is nothing to build yourself."
+      },
+      "install": {
+        "title": "Copy the file into your MT5 folder",
+        "body": "In MetaTrader 5, open File → Open Data Folder, then go into MQL5 → Experts and drop the .ex5 file there.\n\nPut the preset files into MQL5 → Presets.",
+        "path": "MQL5 \\ Experts \\ TopstockEA.ex5"
+      },
+      "enable": {
+        "title": "Restart MT5 and enable Algo Trading",
+        "body": "Close and reopen MetaTrader 5. The EA appears in the Navigator panel under Expert Advisors.\n\nSwitch the Algo Trading button on the toolbar to green. With it off, the EA sends no orders at all, however correctly it is installed."
+      },
+      "attach": {
+        "title": "Drag the EA onto a chart",
+        "body": "Open an M5 chart for NAS100 (or whatever your broker calls it) and drag Topstock EA from the Navigator onto it.\n\nIn the dialog, tick Allow Algo Trading on the Common tab, then open the Inputs tab to load the preset we sent you."
+      },
+      "verify": {
+        "title": "Confirm it's running",
+        "body": "When installation succeeds you'll see the Topstock panel in the corner of the chart, showing the state of all 6 grids, the current hedge level, and the profit target.\n\nA smiley face in the top right of the chart means the EA is active. A cross means Algo Trading still needs enabling."
+      }
+    },
+    "gated": {
+      "title": "The full guide comes with your purchase",
+      "body": "This page is an overview so you can see the installation is not complicated. The full guide has screenshots for every step, preset files for NAS100 and US30, an explanation of every parameter, and troubleshooting for the common problems — plus a 30-60 minute setup call with the team."
+    },
+    "vps": {
+      "eyebrow": "VPS",
+      "title": "Why you want a VPS",
+      "description": "MT5 has to stay running whenever the market is open. Running it on a home computer risks the system stopping mid-position.",
+      "items": {
+        "why": {
+          "title": "Why it matters",
+          "body": "If the computer sleeps, the connection drops, or Windows restarts for an update while a grid is in recovery, the system cannot manage those positions until it is back online."
+        },
+        "specs": {
+          "title": "What's enough",
+          "body": "One MT5 instance running Topstock is not demanding — 2 vCPU and 2 GB of RAM is plenty. Latency to your broker's server matters more than the specification."
+        },
+        "providers": {
+          "title": "Rough cost",
+          "body": "Trading VPS hosting typically runs $5-15 a month. Some brokers provide one free once you hit a volume or deposit threshold, so ask yours first."
+        }
+      }
+    },
+    "cta": {
+      "title": "Stuck on any step?",
+      "description": "Every customer gets a setup call, and we'll stay with you from installation until the system is running.",
+      "button": "Ask about setup on LINE"
+    }
+  },
+  "pricingPage": {
+    "eyebrow": "Pricing",
+    "title": "One price. No hidden costs.",
+    "summary": "฿4,900 once, for life. No monthly fee, unlimited MT5 accounts, and free updates across the whole v1.x line.",
+    "notIncluded": {
+      "eyebrow": "Not included",
+      "title": "What the price does not cover",
+      "description": "We'd rather be clear from the start about the other costs you should plan for.",
+      "items": {
+        "vps": {
+          "title": "VPS hosting",
+          "body": "Roughly $5-15 a month if you want MT5 running 24/5. Some brokers provide one free once you meet their threshold."
+        },
+        "capital": {
+          "title": "Trading capital",
+          "body": "This price is for the software only. The money in your trading account is separate — you can start testing with $10 on a cent account."
+        },
+        "brokerFees": {
+          "title": "Broker spread and commission",
+          "body": "Trading costs go to your broker, not to us, and vary by broker and account type."
+        },
+        "sourceCode": {
+          "title": "MQL5 source code",
+          "body": "You get the compiled .ex5, which is fully functional and fully configurable, but not the original .mq5 file."
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "The process",
+      "title": "How to buy",
+      "steps": {
+        "contact": "Message us on LINE with the broker you use and the symbol you're interested in.",
+        "backtest": "We run a backtest on your broker's data and send the report free, within 24 hours.",
+        "consult": "We talk for 30-60 minutes about the strategy, the risk, and the settings that suit you.",
+        "pay": "If you decide to buy, pay by PromptPay or bank transfer (Stripe for international customers).",
+        "receive": "You get the EA, the preset files, the setup guide, and access to the LINE support group straight away."
+      }
+    },
+    "payment": {
+      "eyebrow": "Payment",
+      "title": "How you can pay",
+      "items": {
+        "promptpay": {
+          "title": "PromptPay",
+          "body": "The main option for customers in Thailand. Transfer straight from your banking app — we send the QR once the order is confirmed."
+        },
+        "bank": {
+          "title": "Bank transfer",
+          "body": "Direct transfer to a Thai bank account. Send the slip over LINE to confirm."
+        },
+        "stripe": {
+          "title": "Card (international)",
+          "body": "For customers outside Thailand we send a Stripe payment link, which takes ordinary credit and debit cards."
+        }
+      }
+    },
+    "cta": {
+      "title": "Start with a free backtest",
+      "description": "You don't have to decide now. Ask to see a backtest on your own broker's data first.",
+      "button": "Ask for a free backtest on LINE"
+    }
+  },
+  "support": {
+    "eyebrow": "Support",
+    "title": "Get in touch",
+    "summary": "LINE is our main channel — it's the fastest way to reach us, before and after you buy.",
+    "line": {
+      "eyebrow": "Main channel",
+      "title": "Talk to us on LINE",
+      "body": "Scan the QR or tap the button to add us. Ask about anything: a backtest, advice before buying, or help with settings and troubleshooting afterwards.",
+      "cta": "Add us on LINE"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "body": "For international customers, or anyone not on LINE. English supported."
+    },
+    "email": {
+      "title": "Email"
+    },
+    "hours": {
+      "title": "Support hours",
+      "note": "Message us outside these hours too — we'll reply on the next working day."
+    },
+    "selfServe": {
+      "eyebrow": "Answer it yourself",
+      "title": "The answer may already be here",
+      "description": "Most common questions are already covered on these pages.",
+      "items": {
+        "faq": {
+          "title": "FAQ",
+          "body": "Over 35 questions, grouped by topic"
+        },
+        "setup": {
+          "title": "Setup guide",
+          "body": "The five installation steps and VPS guidance"
+        },
+        "brokers": {
+          "title": "Brokers",
+          "body": "Recommended brokers and what to check first"
+        },
+        "howItWorks": {
+          "title": "How it works",
+          "body": "The strategy mechanism and every parameter"
+        }
+      }
+    }
+  },
+  "faqPage": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "summary": "The questions customers ask most, grouped by topic. If yours isn't here, ask us on LINE.",
+    "cta": {
+      "title": "Didn't find your answer?",
+      "description": "Ask us directly. We answer every question before you decide to buy.",
+      "button": "Ask us on LINE"
+    },
+    "groups": {
+      "product": {
+        "title": "About the product",
+        "items": {
+          "what": {
+            "q": "What is Topstock EA?",
+            "a": "It's an Expert Advisor for MetaTrader 5, written in MQL5, built specifically to trade the NASDAQ 100 and US 30 indices. It uses a BUY-only hedge grid strategy with a Fast Points Trail, built on the EMA 20/50/100/200 structure of the AURUM PRO system."
+          },
+          "symbols": {
+            "q": "Is it only NAS100, or does US30 work too?",
+            "a": "Both. The defaults are tuned for NAS100 volatility. US30 runs on the same values, or slightly tightened — we include a US30 preset with the setup guide."
+          },
+          "difference": {
+            "q": "How is it different from other EAs?",
+            "a": "Most EAs on the market were built for gold or forex and then pointed at indices, where the parameters don't fit. Gold moves 100-300 points a day; NAS100 moves 500-800. Topstock's values were tuned for that scale from the start, and its Fast Points Trail reacts quickly enough for an index."
+          },
+          "version": {
+            "q": "What's the latest version, and what changed?",
+            "a": "v1.1, which added the Fast Points Trail: it arms once profit reaches 500 points and trails the stop 300 points behind price, running alongside the original EMA trail and taking whichever is tighter. Existing customers get v1.1 free."
+          },
+          "gold": {
+            "q": "Can I use it on XAUUSD (gold)?",
+            "a": "Technically the parameters are adjustable, but we don't recommend it — everything is tuned for index scale. If you want an EA for gold, AURUM Gold EA is a separate product."
+          },
+          "sourceCode": {
+            "q": "Do I get the MQL5 source code?",
+            "a": "No. You get the compiled .ex5, which is fully functional and lets you adjust every parameter from the input tab, but not the original .mq5 file."
+          },
+          "updates": {
+            "q": "Do future updates cost extra?",
+            "a": "No. ฿4,900 covers every update in the v1.x line, for life. We send the new file over LINE whenever one is released."
+          }
+        }
+      },
+      "buying": {
+        "title": "Buying and pricing",
+        "items": {
+          "howToBuy": {
+            "q": "How do I buy?",
+            "a": "Message us on LINE with your broker and the symbol you're interested in. We run a backtest free and send the report within 24 hours, then talk through the strategy and settings. You only pay if you're happy. There's no pressure."
+          },
+          "price": {
+            "q": "What does it cost? Is there a monthly fee?",
+            "a": "฿4,900 once, for life. No monthly fee, no renewal, no hidden costs."
+          },
+          "payment": {
+            "q": "How can I pay?",
+            "a": "PromptPay for Thai customers (our main option), Thai bank transfer, or Stripe for international customers paying by card. We send payment details once we've talked."
+          },
+          "included": {
+            "q": "What do I get for the price?",
+            "a": "The EA v1.1 (.ex5) with presets for NAS100 and US30, unlimited MT5 account activations, free updates across v1.x, a 30-60 minute setup consultation, access to the LINE support group, and a 30-day satisfaction guarantee."
+          },
+          "refund": {
+            "q": "Can I get a refund if I'm not satisfied?",
+            "a": "Yes — a 30-day satisfaction guarantee from the day you receive the files. Contact us on LINE or by email and we'll refund in full through the same method you paid with."
+          },
+          "priceCompare": {
+            "q": "How does the price compare to other EAs?",
+            "a": "Quality EAs run roughly $99-$999, or ฿3,500-฿35,000. At ฿4,900 Topstock sits mid-range — not the cheapest. What differs is the exclusive focus on indices, the free backtest and consultation before buying, and one-to-one support afterwards."
+          },
+          "invoice": {
+            "q": "Can you issue a receipt or tax invoice?",
+            "a": "Tell us on LINE when you order and we'll prepare the documents with the details you provide."
+          }
+        }
+      },
+      "account": {
+        "title": "Brokers and accounts",
+        "items": {
+          "brokers": {
+            "q": "Which brokers work?",
+            "a": "Any MT5 broker offering NAS100 / US100 / USTEC or US30 / DJ30 that supports hedging accounts. Most of our customers use FBS, Exness, or XM — see the brokers page for details."
+          },
+          "minimum": {
+            "q": "What's the minimum capital?",
+            "a": "$10 on a cent account is enough to test the strategy with real money at very low risk. On a standard account we recommend at least $500 so the grid system has room to work."
+          },
+          "centVsStandard": {
+            "q": "What's the difference between a cent and standard account?",
+            "a": "A cent account values one lot at a hundredth of a standard account, so you can test with real money at very low risk. We recommend everyone start on cent for at least 2-4 weeks, then move to standard once the behaviour is familiar."
+          },
+          "leverage": {
+            "q": "What leverage should I use?",
+            "a": "Higher leverage doesn't produce more profit — it gives more margin headroom as a grid grows. 1:200 to 1:500 is generally plenty. What matters more is starting lot size relative to capital, which we work out with you on the setup call."
+          },
+          "symbolName": {
+            "q": "My broker's symbol name doesn't match. What now?",
+            "a": "Brokers name it differently — US100, USTEC, NAS100, US100Cash are all the same index. Just drag the EA onto that symbol's chart; it reads the symbol from the chart it's attached to."
+          },
+          "multipleAccounts": {
+            "q": "Can I run it on several accounts at once?",
+            "a": "Yes, with no limit on MT5 accounts. You can run a cent account for testing and a live standard account at the same time, or across several brokers."
+          }
+        }
+      },
+      "running": {
+        "title": "Setup and running",
+        "items": {
+          "vps": {
+            "q": "Does MT5 need to run 24/5?",
+            "a": "Yes. MT5 has to be running the whole time the market is open, because the EA is managing open grids. We recommend a VPS at around $5-15 a month so the system doesn't stop when your computer sleeps or the connection drops."
+          },
+          "timeframe": {
+            "q": "Which timeframe should I use?",
+            "a": "M5 is what we recommend and what the defaults are tuned for. M15 works but produces fewer signals. We don't recommend anything below M5 — the noise overwhelms the entry logic."
+          },
+          "settings": {
+            "q": "Do I need to change any settings?",
+            "a": "The defaults work as-is for NAS100 on a standard account. What you should set for your own capital is the starting lot size and InpRecMaxLevel (the hedge level cap, where we suggest 8-10). We help with both on the setup call."
+          },
+          "monitoring": {
+            "q": "Do I need to watch it constantly?",
+            "a": "No, it's fully automated. We do suggest checking in once a day, especially around volatile sessions or major economic releases. The on-chart panel shows all 6 grids at once."
+          },
+          "multipleCharts": {
+            "q": "Can I run it on several charts at once?",
+            "a": "Yes — NAS100 and US30 together in one account, for instance. Just plan the combined margin carefully, because both charts draw on the same capital to support their grids."
+          },
+          "news": {
+            "q": "Should I turn it off around major news?",
+            "a": "That depends on your risk tolerance. Around FOMC or NFP, indices can move violently with high slippage. Some customers disable algo trading through those windows; others leave it running. We can talk it through on the setup call."
+          }
+        }
+      },
+      "risk": {
+        "title": "Risk",
+        "items": {
+          "drawdown": {
+            "q": "What's the drawdown risk?",
+            "a": "Grid strategies accumulate drawdown when the market trends persistently against the position, because the system adds hedges to average in. The further price runs against you, the deeper it goes. We recommend capping InpRecMaxLevel at 8-10, and never using money you cannot afford to lose entirely."
+          },
+          "martingale": {
+            "q": "Is this martingale?",
+            "a": "Not in the doubling sense — lot size does not double each time. Topstock averages in at clearly defined levels, with a cap you set yourself and a close target that scales with position size. That said, every averaging strategy carries the risk of a large loss if the market runs against it far enough for long enough."
+          },
+          "worstCase": {
+            "q": "What's the worst case?",
+            "a": "The index falls persistently further than all your hedge levels can absorb, leaving the grid deeply negative and potentially triggering a margin call. That's exactly why we insist on a backtest and a risk conversation before selling, and why we repeat that you should never use money you cannot afford to lose entirely."
+          },
+          "capitalAdvice": {
+            "q": "How much should I trade with?",
+            "a": "Only money you accept you could lose in full. Not savings you need to live on, not borrowed money, and not money already committed elsewhere. Always start on a cent account with a small amount."
+          },
+          "guarantee": {
+            "q": "Do you guarantee profit?",
+            "a": "No, and we won't. No EA anywhere can guarantee profit, and past performance says nothing about the future. Topstock is a software tool, not investment advice, and AURUM TECH is not a licensed financial advisor."
+          }
+        }
+      },
+      "support": {
+        "title": "Support",
+        "items": {
+          "channels": {
+            "q": "How do I reach you?",
+            "a": "LINE is the main channel and the fastest. There's also Telegram for international customers, and email for anything you want in writing."
+          },
+          "hours": {
+            "q": "What are your support hours?",
+            "a": "Monday to Friday, 9:00-18:00 Thailand time. Message outside those hours too and we'll reply on the next working day."
+          },
+          "language": {
+            "q": "Which languages do you support?",
+            "a": "Thai and English — for pre-sale questions, the setup call, and support afterwards."
+          },
+          "activationHelp": {
+            "q": "What if I have trouble installing it?",
+            "a": "We'll help. Every customer gets a 30-60 minute setup call and access to the LINE support group. If installation, configuration, or behaviour isn't right, just message us."
+          }
+        }
+      }
     }
   }
 }

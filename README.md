@@ -21,9 +21,14 @@ Target domain: `topstock.aurumtech.co`
 
 ```bash
 npm install
-cp .env.example .env.local   # fill in as services are provisioned
+cp .env.example .env.local   # only the four LINE/contact vars are required
 npm run dev
 ```
+
+**Deploying the MVP needs four environment variables** — `NEXT_PUBLIC_LINE_ID`,
+`NEXT_PUBLIC_LINE_QR_URL`, `NEXT_PUBLIC_TELEGRAM_URL`, and
+`NEXT_PUBLIC_SUPPORT_EMAIL`. Supabase and Resend are optional and only gate
+the `/trial` form. See `.env.example`, which is split along that line.
 
 - `npm run build` — production build
 - `npm run typecheck` — `tsc --noEmit`
@@ -56,8 +61,8 @@ without a re-theme.
 
 - [x] **Phase 1 — Foundation:** scaffold, design tokens, i18n, nav/footer/language toggle
 - [x] **Phase 2 — Landing page:** hero → problem → solution → mechanism → try-before-buy → backtest → brokers → pricing → FAQ → final CTA
-- [ ] **Phase 3 — Supporting pages**
-- [ ] **Phase 4 — Trial funnel** (`/trial` form, admin notification, manual payment page, license activation)
+- [x] **Phase 3 — Supporting pages** + LINE-direct CTAs
+- [ ] **Phase 4 — Commerce** (manual payment page, license activation) — only when volume warrants
 - [ ] **Phase 5 — Polish** (Thai copy pass, OG images, sitemap, analytics, a11y audit)
 - [ ] **Phase 6 — Deploy**
 
@@ -67,13 +72,22 @@ One product, one price: **฿4,900 THB, one-time, lifetime access**. There are n
 tiers and no subscription — `lib/site.ts` → `pricing` is the only place the
 figure is defined.
 
-Selling is consultative and manual; there is no automated checkout in the MVP:
+This is a **marketing-only site**. It has no checkout, no accounts, and needs
+no backend to go live. Its whole job is to explain the product well enough
+that the visitor opens LINE:
 
 ```
-trial  →  consult  →  manual payment  →  license issued
+read the site  →  message us on LINE  →  consult  →  manual payment  →  license
 ```
 
-The site's job is to earn a trial request. LINE is the primary contact channel.
+Everything after the first arrow happens in LINE, by hand. Every primary CTA
+on every page opens the LINE add-friend URL in a new tab, rendered through the
+single `LineCta` component so they cannot drift apart.
+
+`/trial` is a **secondary path** for visitors who would rather not open LINE.
+It is fully built and works when the optional backend env vars are set; with
+them unset it returns a clear "message us on LINE instead" response. Nothing
+else on the site depends on it.
 
 ## Typography note (Thai)
 

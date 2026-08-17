@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, MessagesSquare, Target, Wallet } from 'lucide-react';
+import { MessagesSquare, Target, Wallet } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
 import { siteConfig } from '@/lib/site';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { LineCta, LineCtaFormLink } from '@/components/line-cta';
 
 const TRUST = [
   { key: 'built', Icon: Target },
@@ -38,16 +38,14 @@ export function Hero() {
             {t('subtitle')}
           </p>
 
-          <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button asChild size="lg">
-              <Link href="/trial">
-                {t('ctaPrimary')}
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary">
-              <a href="#how-it-works">{t('ctaSecondary')}</a>
-            </Button>
+          <div className="mt-9 flex w-full flex-col items-center gap-4 sm:w-auto">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <LineCta label={t('ctaPrimary')} formLink={false} />
+              <Button asChild size="lg" variant="secondary">
+                <a href="#how-it-works">{t('ctaSecondary')}</a>
+              </Button>
+            </div>
+            <LineCtaFormLink />
           </div>
 
           <ul className="mt-12 grid w-full gap-x-8 gap-y-4 text-left sm:grid-cols-3">

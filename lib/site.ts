@@ -55,6 +55,21 @@ export const salesFlow = ['trial', 'consult', 'purchase'] as const;
 export type SalesStage = (typeof salesFlow)[number];
 
 /**
+ * Registered company details for the legal pages.
+ *
+ * PENDING: every value below is a bracketed placeholder. They render verbatim
+ * on the legal pages so an unfilled field is visibly unfilled rather than
+ * reading as a real registration. Replace before launch.
+ */
+export const COMPANY = {
+  legalName: '[AURUM TECH — ชื่อนิติบุคคลจดทะเบียน]',
+  registeredAddress: '[AURUM TECH — ที่อยู่จดทะเบียน]',
+  registrationNumber: '[เลขทะเบียนพาณิชย์]',
+  jurisdiction: '[ประเทศไทย / Thailand]',
+  documentsUpdated: '2026-08-17',
+} as const;
+
+/**
  * Brokers the EA is known to run on. Names only — these are not affiliate
  * links and carry no partnership claim.
  */

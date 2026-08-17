@@ -1,9 +1,8 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
 import { PRICING, siteConfig } from '@/lib/site';
-import { Button } from '@/components/ui/button';
+import { LineCta } from '@/components/line-cta';
 import { SectionHeading } from '@/components/ui/section-heading';
 
 /** One product, one price — there is nothing to compare, so there is no table. */
@@ -46,12 +45,7 @@ export function PricingCard() {
             </ul>
 
             <div className="flex flex-col gap-4 border-t border-surface-border px-8 py-8">
-              <Button asChild size="lg" className="w-full">
-                <Link href="/trial">
-                  {t('cta')}
-                  <ArrowRight aria-hidden="true" />
-                </Link>
-              </Button>
+              <LineCta label={t('cta')} className="w-full" />
               <p className="text-center text-xs text-ink-tertiary">
                 <span className="text-ink-secondary">{t('paymentLabel')}:</span>{' '}
                 {t('paymentMethods')}

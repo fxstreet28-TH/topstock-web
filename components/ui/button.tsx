@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-brand-gold text-surface hover:bg-brand-gold-light hover:shadow-glow-gold active:bg-brand-gold-dark',
+          'shimmer bg-brand-gold text-surface hover:bg-brand-gold-light hover:shadow-glow-gold active:bg-brand-gold-dark',
         secondary:
           'border border-brand-gold/40 bg-transparent text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10',
         outline:

@@ -1,3 +1,5 @@
+import { readEnv, readUrlEnv } from '@/lib/env';
+
 /**
  * Single source of truth for site-wide constants.
  *
@@ -9,7 +11,7 @@ export const siteConfig = {
   name: 'Topstock EA',
   parentBrand: 'AURUM TECH',
   parentUrl: 'https://aurumtech.co',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://topstock.aurumtech.co',
+  url: readUrlEnv(process.env.NEXT_PUBLIC_SITE_URL, 'https://topstock.aurumtech.co'),
   version: '1.1',
 } as const;
 
@@ -39,11 +41,11 @@ export const PRICING = {
 } as const;
 
 export const CONTACT = {
-  line: process.env.NEXT_PUBLIC_LINE_ID ?? '@aurumtech',
-  lineUrl: process.env.NEXT_PUBLIC_LINE_QR_URL ?? 'https://line.me/R/ti/p/@aurumtech',
+  line: readEnv(process.env.NEXT_PUBLIC_LINE_ID, '@aurumtech'),
+  lineUrl: readUrlEnv(process.env.NEXT_PUBLIC_LINE_QR_URL, 'https://line.me/R/ti/p/@aurumtech'),
   telegram: 'aurumtech_support',
-  telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/aurumtech_support',
-  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? 'support@topstock.aurumtech.co',
+  telegramUrl: readUrlEnv(process.env.NEXT_PUBLIC_TELEGRAM_URL, 'https://t.me/aurumtech_support'),
+  email: readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, 'support@aurumtech.co'),
   supportHours: 'Mon-Fri 9:00-18:00 ICT',
 } as const;
 
@@ -53,6 +55,29 @@ export const CONTACT = {
  */
 export const salesFlow = ['trial', 'consult', 'purchase'] as const;
 export type SalesStage = (typeof salesFlow)[number];
+
+/**
+ * Registered company details for the legal pages.
+ *
+ * Two fields are still outstanding and stay wrapped in brackets so they render
+ * as visibly unfilled rather than reading as a real registration. The legal
+ * pages flag any bracketed value — see `isPendingCompanyValue`.
+ */
+export const COMPANY = {
+  legalName: 'AURUM TECH',
+  registeredAddress: '[Por ต้องกรอก — ที่อยู่จดทะเบียนพาณิชย์]',
+  registrationNumber: '[Por ต้องกรอก — เลข ทพ.]',
+  jurisdiction: 'Thailand',
+  documentsUpdated: '2026-08-17',
+} as const;
+
+/**
+ * True while a company field is still a bracketed placeholder, so the legal
+ * pages can mark it rather than presenting it as a settled fact.
+ */
+export function isPendingCompanyValue(value: string): boolean {
+  return value.trim().startsWith('[');
+}
 
 /**
  * Brokers the EA is known to run on. Names only — these are not affiliate

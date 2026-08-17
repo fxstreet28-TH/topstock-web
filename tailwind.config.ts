@@ -81,6 +81,9 @@ const config: Config = {
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       fontSize: {
+        // Hero only. Scales 48px → 104px, i.e. roughly text-6xl on mobile up
+        // to a shade past text-8xl on wide screens.
+        'display-hero': ['clamp(2.75rem, 7vw, 6rem)', { lineHeight: '0.95', letterSpacing: '-0.045em' }],
         'display-xl': ['clamp(2.75rem, 6vw, 4.5rem)', { lineHeight: '1.03', letterSpacing: '-0.035em' }],
         'display-lg': ['clamp(2.25rem, 4.5vw, 3.5rem)', { lineHeight: '1.06', letterSpacing: '-0.03em' }],
         'display-md': ['clamp(1.875rem, 3vw, 2.5rem)', { lineHeight: '1.12', letterSpacing: '-0.025em' }],

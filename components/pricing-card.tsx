@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
 import { PRICING, siteConfig } from '@/lib/site';
-import { Button } from '@/components/ui/button';
+import { LineCta } from '@/components/line-cta';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { Reveal } from '@/components/reveal';
 
 /** One product, one price — there is nothing to compare, so there is no table. */
 export function PricingCard() {
@@ -13,9 +13,11 @@ export function PricingCard() {
   return (
     <section id="pricing" className="section border-b border-surface-border scroll-mt-24">
       <div className="container">
-        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
+        <Reveal>
+          <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
+        </Reveal>
 
-        <div className="mx-auto mt-14 max-w-lg">
+        <Reveal className="mx-auto mt-14 max-w-lg" delay={80}>
           <div className="relative overflow-hidden rounded-2xl border border-brand-gold/30 bg-surface-elevated shadow-glow-gold">
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent"
@@ -46,12 +48,7 @@ export function PricingCard() {
             </ul>
 
             <div className="flex flex-col gap-4 border-t border-surface-border px-8 py-8">
-              <Button asChild size="lg" className="w-full">
-                <Link href="/trial">
-                  {t('cta')}
-                  <ArrowRight aria-hidden="true" />
-                </Link>
-              </Button>
+              <LineCta label={t('cta')} className="w-full" />
               <p className="text-center text-xs text-ink-tertiary">
                 <span className="text-ink-secondary">{t('paymentLabel')}:</span>{' '}
                 {t('paymentMethods')}
@@ -60,7 +57,7 @@ export function PricingCard() {
           </div>
 
           <p className="mt-6 text-center text-sm leading-relaxed text-ink-tertiary">{t('note')}</p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

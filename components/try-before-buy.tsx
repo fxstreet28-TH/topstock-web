@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl';
-import { ArrowRight, BarChart3, MessagesSquare, CheckCircle2 } from 'lucide-react';
+import { BarChart3, MessagesSquare, CheckCircle2 } from 'lucide-react';
 
-import { Link } from '@/lib/navigation';
-import { Button } from '@/components/ui/button';
+import { LineCta } from '@/components/line-cta';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { Reveal } from '@/components/reveal';
 
 const STEPS = [
   { key: 'backtest', Icon: BarChart3 },
@@ -29,11 +29,13 @@ export function TryBeforeBuy() {
       />
 
       <div className="container">
-        <SectionHeading
-          eyebrow={t('eyebrow')}
-          title={t('title')}
-          description={t('description')}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            title={t('title')}
+            description={t('description')}
+          />
+        </Reveal>
 
         <ol className="relative mt-14 grid gap-6 md:grid-cols-3">
           {/* Connector rail between the three steps on desktop. */}
@@ -43,9 +45,11 @@ export function TryBeforeBuy() {
           />
 
           {STEPS.map(({ key, Icon }, i) => (
-            <li
+            <Reveal
               key={key}
-              className="relative flex flex-col gap-4 rounded-xl border border-surface-border bg-surface-elevated p-7"
+              as="li"
+              delay={i * 100}
+              className="hover-lift relative flex flex-col gap-4 rounded-xl border border-surface-border bg-surface-elevated p-7"
             >
               <div className="flex items-center gap-3">
                 <span className="relative z-10 inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-brand-gold/30 bg-surface text-brand-gold">
@@ -57,17 +61,12 @@ export function TryBeforeBuy() {
               <p className="text-[0.9375rem] leading-relaxed text-ink-secondary">
                 {t(`items.${key}.body`)}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ol>
 
         <div className="mt-12 flex justify-center">
-          <Button asChild size="lg">
-            <Link href="/trial">
-              {t('cta')}
-              <ArrowRight aria-hidden="true" />
-            </Link>
-          </Button>
+          <LineCta label={t('cta')} />
         </div>
       </div>
     </section>

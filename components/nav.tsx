@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Menu, X } from 'lucide-react';
+import { Menu, MessageCircle, X } from 'lucide-react';
 
 import { Link, usePathname } from '@/lib/navigation';
+import { CONTACT } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { LanguageToggle } from '@/components/language-toggle';
@@ -71,7 +72,10 @@ export function Nav() {
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <Button asChild size="sm">
-            <Link href="/trial">{t('cta')}</Link>
+            <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
+              <MessageCircle aria-hidden="true" />
+              {t('cta')}
+            </a>
           </Button>
         </div>
 
@@ -109,7 +113,10 @@ export function Nav() {
             ))}
             <li className="pb-2 pt-3">
               <Button asChild className="w-full" size="lg">
-                <Link href="/trial">{t('cta')}</Link>
+                <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  {t('cta')}
+                </a>
               </Button>
             </li>
           </ul>

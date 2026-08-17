@@ -8,6 +8,7 @@ import { routing, type Locale } from '@/lib/routing';
 import { siteConfig } from '@/lib/site';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
+import { Analytics } from '@/components/analytics';
 import '../globals.css';
 
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -88,6 +89,15 @@ export default async function LocaleLayout({
       className={`dark ${body.variable} ${display.variable} ${mono.variable} ${thai.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/*
+          Scroll-reveal starts at opacity 0 and is switched on by JS. Without
+          scripting that would hide the page, so undo it here.
+        */}
+        <noscript>
+          <style>{'.reveal{opacity:1 !important;transform:none !important}'}</style>
+        </noscript>
+      </head>
       <body className="flex min-h-screen flex-col bg-surface">
         <NextIntlClientProvider>
           <a href="#main" className="skip-link">
@@ -99,6 +109,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

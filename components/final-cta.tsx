@@ -4,7 +4,6 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { CONTACT } from '@/lib/site';
 import { Button } from '@/components/ui/button';
-import { RiskDisclaimer } from '@/components/risk-disclaimer';
 
 export function FinalCta() {
   const t = useTranslations('home.finalCta');
@@ -39,8 +38,12 @@ export function FinalCta() {
             </Button>
           </div>
         </div>
-
-        <RiskDisclaimer className="mx-auto mt-16 max-w-3xl" />
+        {/*
+          The footer's compact risk disclaimer renders directly below this
+          section on every page, so a block copy here would repeat the same
+          legal text twice in one screen. The full prominent version lives on
+          /legal/risk.
+        */}
       </div>
     </section>
   );

@@ -262,5 +262,78 @@
     "title": "Topstock EA — MetaTrader 5 Expert Advisor for NASDAQ 100 & US 30",
     "description": "Purpose-built MT5 EA for NASDAQ 100 & US 30. BUY-only hedge grid with Fast Points Trail. Free backtest trial + consultation before purchase. ฿4,900 one-time.",
     "titleTemplate": "%s — Topstock EA"
+  },
+  "trial": {
+    "eyebrow": "Free, no commitment",
+    "title": "Request a free backtest",
+    "subtitle": "Tell us which broker you use and which symbol you're interested in. We'll run Topstock EA on your historical data and come back with the results within 24 hours.",
+    "meta": {
+      "title": "Request a free backtest",
+      "description": "Request a free Topstock EA backtest on your own broker's data, plus a consultation before you decide. Reply within 24 hours."
+    },
+    "assurances": {
+      "free": "The backtest is free",
+      "reply": "Reply within 24 hours",
+      "noPressure": "No pressure to buy"
+    },
+    "form": {
+      "requestType": "What would you like? (choose one or both)",
+      "wantBacktest": "A backtest on my broker's data",
+      "wantConsultation": "A consultation with the team (30-60 min)",
+      "name": "Name",
+      "email": "Email",
+      "lineId": "LINE ID",
+      "lineIdHint": "The fastest way for us to reach you",
+      "telegramId": "Telegram",
+      "broker": "Your broker",
+      "symbol": "Symbol of interest",
+      "timeframe": "Timeframe",
+      "experience": "Trading experience",
+      "message": "Anything else",
+      "messageHint": "Any questions about the strategy, risk, or settings?",
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "privacyNote": "We use these details only to reply about your backtest and consultation. They are never shared with third parties.",
+      "options": {
+        "broker": {
+          "fbs_cent": "FBS Cent",
+          "fbs_standard": "FBS Standard",
+          "exness": "Exness",
+          "xm": "XM",
+          "other": "Other"
+        },
+        "symbol": {
+          "nas100": "NAS100",
+          "us30": "US30",
+          "both": "Both"
+        },
+        "timeframe": {
+          "m5": "M5 (recommended)",
+          "m15": "M15",
+          "h1": "H1"
+        },
+        "experience": {
+          "beginner": "New to trading",
+          "intermediate": "Some experience",
+          "advanced": "Experienced"
+        }
+      },
+      "errors": {
+        "selectAtLeastOne": "Please choose at least one.",
+        "invalid": "Please check the details you entered.",
+        "rate_limited": "This email has reached the limit of requests for this hour. Try again later, or message us on LINE right away.",
+        "unavailable": "Request handling isn't available yet. Please message us on LINE to ask for a backtest directly.",
+        "server_error": "Something went wrong sending your request. Please try again, or message us on LINE.",
+        "network": "Couldn't connect. Check your connection and try again."
+      }
+    },
+    "success": {
+      "title": "Your request is in",
+      "body": "We'll come back with your backtest within 24 hours. If you'd like to talk sooner, add us on LINE.",
+      "qrLabel": "Scan to add us on LINE",
+      "addLine": "Add on LINE",
+      "telegram": "Chat on Telegram",
+      "supportHours": "Support hours {hours}"
+    }
   }
 }

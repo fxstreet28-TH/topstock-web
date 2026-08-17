@@ -262,5 +262,78 @@
     "title": "Topstock EA — Expert Advisor สำหรับ MetaTrader 5 บน NASDAQ 100 และ US 30",
     "description": "EA เทรด NASDAQ 100 และ US 30 โดยเฉพาะ. BUY-only hedge grid + Fast Points Trail. ทดลอง backtest ฟรี พร้อมคำปรึกษาก่อนตัดสินใจซื้อ. ฿4,900 ครั้งเดียว.",
     "titleTemplate": "%s — Topstock EA"
+  },
+  "trial": {
+    "eyebrow": "ฟรี ไม่มีข้อผูกมัด",
+    "title": "ขอ Backtest ฟรี",
+    "subtitle": "บอกเราว่าคุณใช้โบรกเกอร์ไหนและสนใจคู่ไหน ทีมงานจะรัน Topstock EA บนข้อมูลย้อนหลังของคุณ แล้วติดต่อกลับพร้อมผลลัพธ์ภายใน 24 ชั่วโมง",
+    "meta": {
+      "title": "ขอ Backtest ฟรี",
+      "description": "ขอ backtest Topstock EA บนข้อมูลโบรกเกอร์ของคุณฟรี พร้อมคำปรึกษาก่อนตัดสินใจซื้อ ตอบกลับภายใน 24 ชั่วโมง"
+    },
+    "assurances": {
+      "free": "Backtest ฟรี ไม่มีค่าใช้จ่าย",
+      "reply": "ตอบกลับภายใน 24 ชั่วโมง",
+      "noPressure": "ไม่มีการเร่งรัดให้ซื้อ"
+    },
+    "form": {
+      "requestType": "คุณต้องการอะไร (เลือกได้มากกว่า 1 ข้อ)",
+      "wantBacktest": "ขอผล backtest บนข้อมูลโบรกเกอร์ของฉัน",
+      "wantConsultation": "ขอคำปรึกษากับทีมงาน (30-60 นาที)",
+      "name": "ชื่อ",
+      "email": "อีเมล",
+      "lineId": "LINE ID",
+      "lineIdHint": "ช่องทางที่เราติดต่อกลับเร็วที่สุด",
+      "telegramId": "Telegram",
+      "broker": "โบรกเกอร์ที่ใช้",
+      "symbol": "คู่ที่สนใจ",
+      "timeframe": "Timeframe",
+      "experience": "ประสบการณ์เทรด",
+      "message": "คำถามเพิ่มเติม",
+      "messageHint": "มีอะไรอยากถามเกี่ยวกับกลยุทธ์ ความเสี่ยง หรือการตั้งค่าไหม",
+      "submit": "ส่งคำขอ",
+      "submitting": "กำลังส่ง...",
+      "privacyNote": "เราใช้ข้อมูลนี้เพื่อติดต่อกลับเรื่อง backtest และคำปรึกษาเท่านั้น ไม่ส่งต่อให้บุคคลที่สาม",
+      "options": {
+        "broker": {
+          "fbs_cent": "FBS Cent",
+          "fbs_standard": "FBS Standard",
+          "exness": "Exness",
+          "xm": "XM",
+          "other": "อื่น ๆ"
+        },
+        "symbol": {
+          "nas100": "NAS100",
+          "us30": "US30",
+          "both": "ทั้งสองคู่"
+        },
+        "timeframe": {
+          "m5": "M5 (แนะนำ)",
+          "m15": "M15",
+          "h1": "H1"
+        },
+        "experience": {
+          "beginner": "มือใหม่",
+          "intermediate": "มีประสบการณ์บ้าง",
+          "advanced": "ชำนาญแล้ว"
+        }
+      },
+      "errors": {
+        "selectAtLeastOne": "กรุณาเลือกอย่างน้อย 1 ข้อ",
+        "invalid": "กรุณาตรวจสอบข้อมูลที่กรอกอีกครั้ง",
+        "rate_limited": "อีเมลนี้ส่งคำขอครบตามจำนวนที่กำหนดในชั่วโมงนี้แล้ว กรุณาลองใหม่ภายหลัง หรือทักหาเราทาง LINE ได้ทันที",
+        "unavailable": "ระบบรับคำขอยังไม่พร้อมใช้งานในขณะนี้ กรุณาทักหาเราทาง LINE เพื่อขอ backtest ได้โดยตรง",
+        "server_error": "เกิดข้อผิดพลาดในการส่งคำขอ กรุณาลองใหม่อีกครั้ง หรือทักหาเราทาง LINE",
+        "network": "เชื่อมต่อไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่อีกครั้ง"
+      }
+    },
+    "success": {
+      "title": "ได้รับคำขอของคุณแล้ว",
+      "body": "ทีมงานจะติดต่อกลับพร้อมผล backtest ภายใน 24 ชั่วโมง หากต้องการคุยเร็วกว่านั้น เพิ่มเราเป็นเพื่อนใน LINE ได้เลย",
+      "qrLabel": "สแกนเพื่อเพิ่มเพื่อนใน LINE",
+      "addLine": "เพิ่มเพื่อนใน LINE",
+      "telegram": "คุยผ่าน Telegram",
+      "supportHours": "เวลาทำการ {hours}"
+    }
   }
 }

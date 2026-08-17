@@ -31,8 +31,9 @@ npm run dev
 
 ## Routing & i18n
 
-Locale prefixes are `as-needed`: English lives on clean paths (`/pricing`) and Thai
-is namespaced (`/th/pricing`). Routing is declared once in `lib/routing.ts`;
+Thai is the primary market and the default locale. Locale prefixes are
+`as-needed`: Thai lives on clean paths (`/pricing`) and English is namespaced
+(`/en/pricing`). Routing is declared once in `lib/routing.ts`;
 always import `Link` / `useRouter` / `usePathname` from `lib/navigation.ts` so
 locale prefixes are handled automatically.
 
@@ -54,11 +55,34 @@ without a re-theme.
 ## Build order
 
 - [x] **Phase 1 — Foundation:** scaffold, design tokens, i18n, nav/footer/language toggle
-- [ ] **Phase 2 — Landing page**
+- [x] **Phase 2 — Landing page:** hero → problem → solution → mechanism → try-before-buy → backtest → brokers → pricing → FAQ → final CTA
 - [ ] **Phase 3 — Supporting pages**
-- [ ] **Phase 4 — Commerce** (Stripe, Supabase, Resend, license activation)
+- [ ] **Phase 4 — Trial funnel** (`/trial` form, admin notification, manual payment page, license activation)
 - [ ] **Phase 5 — Polish** (Thai copy pass, OG images, sitemap, analytics, a11y audit)
 - [ ] **Phase 6 — Deploy**
+
+## Commercial model
+
+One product, one price: **฿4,900 THB, one-time, lifetime access**. There are no
+tiers and no subscription — `lib/site.ts` → `pricing` is the only place the
+figure is defined.
+
+Selling is consultative and manual; there is no automated checkout in the MVP:
+
+```
+trial  →  consult  →  manual payment  →  license issued
+```
+
+The site's job is to earn a trial request. LINE is the primary contact channel.
+
+## Typography note (Thai)
+
+Thai is written without spaces between words, so per-glyph `letter-spacing`
+destroys the word boundaries readers rely on. Tracked labels therefore use the
+`.track-label` class rather than a raw `tracking-*` utility — the tracking is
+zeroed under `html[lang='th']`. Headings and body copy also get looser leading
+in Thai to clear the stacked vowel and tone marks. Keep using `.track-label`
+for any new small-caps label.
 
 ## Content rules
 
@@ -79,9 +103,10 @@ figures, no countdown timers, and no guarantee language.
 These are stubbed and need real values before launch:
 
 - AURUM TECH logo (SVG) and a Topstock wordmark — currently a generated mark in `components/logo.tsx`
-- Real backtest data (Strategy Tester export) — metrics are placeholders
+- Real backtest data (Strategy Tester export) — the backtest section currently
+  ships a deliberate empty state and publishes no figures at all
 - EA panel screenshots
-- Confirmed pricing ($49 / $249 / $799 assumed — `lib/site.ts`)
-- Support handles: Telegram username, Discord invite (`lib/site.ts`)
+- Real LINE official account ID — `lib/site.ts` currently holds a placeholder
+- Trial length and trial-delivery mechanics
 - Registered company name, address and jurisdiction for the legal pages
-- Stripe price IDs
+- Registered payment details for the manual-payment step (bank / PromptPay)

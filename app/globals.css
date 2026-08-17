@@ -104,8 +104,36 @@
     @apply py-20 md:py-28;
   }
 
+  /*
+   * Wide tracking for small uppercase labels.
+   *
+   * Thai is written without spaces between words, so letter-spacing applied
+   * per glyph erases the word boundaries readers rely on. Every tracked label
+   * therefore uses this class rather than a raw `tracking-*` utility, and the
+   * tracking is dropped on Thai pages.
+   */
+  .track-label {
+    letter-spacing: 0.16em;
+  }
+
+  html[lang='th'] .track-label {
+    letter-spacing: 0;
+  }
+
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.18em] text-brand-gold;
+    @apply track-label font-mono text-xs uppercase text-brand-gold;
+  }
+
+  /*
+   * Thai stacks vowel and tone marks above and below the base glyph, so the
+   * tight Latin display leading crowds them. Loosen headings and body copy.
+   */
+  html[lang='th'] :is(h1, h2, h3) {
+    line-height: 1.25;
+  }
+
+  html[lang='th'] :is(p, li, dd, dt) {
+    line-height: 1.8;
   }
 
   .text-gradient-gold {

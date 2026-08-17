@@ -9,11 +9,11 @@ export const localeNames: Record<Locale, string> = {
 };
 
 /**
- * `as-needed` keeps English on clean paths (/pricing) and namespaces Thai
- * under /th (/th/pricing). English is the primary market; Thai is the toggle.
+ * Thai is the primary market. `as-needed` keeps Thai on clean paths
+ * (/pricing) and namespaces English under /en (/en/pricing).
  */
 export const routing = defineRouting({
   locales,
-  defaultLocale: 'en',
+  defaultLocale: 'th',
   localePrefix: 'as-needed',
 });

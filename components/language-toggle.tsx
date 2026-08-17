@@ -60,7 +60,7 @@ export function LanguageToggle({ className }: { className?: string }) {
               )}
             >
               {localeNames[l]}
-              <span className="font-mono text-[0.625rem] uppercase tracking-widest opacity-60">
+              <span className="font-mono text-[0.625rem] uppercase track-label opacity-60">
                 {l}
               </span>
             </DropdownMenu.Item>

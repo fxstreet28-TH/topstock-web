@@ -1,8 +1,8 @@
 /**
  * Single source of truth for site-wide constants.
  *
- * NOTE: pricing figures, support handles and company details are pending
- * confirmation from the product owner — see README "Pending inputs".
+ * Contact handles and payment details are env-driven so they can be corrected
+ * in Vercel without a redeploy of code — see README "Pending inputs".
  */
 
 export const siteConfig = {
@@ -11,39 +11,76 @@ export const siteConfig = {
   parentUrl: 'https://aurumtech.co',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://topstock.aurumtech.co',
   version: '1.1',
-  supportEmail: 'support@topstock.aurumtech.co',
-  social: {
-    telegram: 'https://t.me/aurumtech',
-    discord: 'https://discord.gg/aurumtech',
-  },
 } as const;
 
-export type PlanId = 'starter' | 'pro' | 'lifetime';
+/**
+ * One product, one price. No tiers, no subscription.
+ *
+ * `includes` holds message keys rather than literal strings: the site is
+ * Thai-primary with an English translation, so the displayed bullets live in
+ * messages/{locale}.json under `pricing.includes.*`.
+ */
+export const PRICING = {
+  currency: 'THB' as const,
+  amount: 4900,
+  amountFormatted: '฿4,900',
+  /** Indicative only — shown as secondary text for international visitors. */
+  amountUSD: '~$140 USD',
+  billing: 'one-time' as const,
+  includes: [
+    'ea',
+    'activations',
+    'updates',
+    'trial',
+    'consultation',
+    'support',
+    'guarantee',
+  ] as const,
+} as const;
 
-export interface Plan {
-  id: PlanId;
-  /** USD, whole dollars. */
-  price: number;
-  /** Billing period label key suffix, resolved through i18n. */
-  interval: 'month' | 'sixMonths' | 'once';
-  activations: number;
-  /** Marks the visually highlighted card. */
-  featured: boolean;
-  /** Number of bullet points held in messages/{locale}.json under pricing.plans.<id>.features */
-  featureCount: number;
-}
+export const CONTACT = {
+  line: process.env.NEXT_PUBLIC_LINE_ID ?? '@aurumtech',
+  lineUrl: process.env.NEXT_PUBLIC_LINE_QR_URL ?? 'https://line.me/R/ti/p/@aurumtech',
+  telegram: 'aurumtech_support',
+  telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/aurumtech_support',
+  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? 'support@topstock.aurumtech.co',
+  supportHours: 'Mon-Fri 9:00-18:00 ICT',
+} as const;
 
-export const plans: Plan[] = [
-  { id: 'starter', price: 49, interval: 'month', activations: 1, featured: false, featureCount: 5 },
-  { id: 'pro', price: 249, interval: 'sixMonths', activations: 3, featured: true, featureCount: 5 },
-  { id: 'lifetime', price: 799, interval: 'once', activations: 999, featured: false, featureCount: 5 },
-];
+/**
+ * The consultative funnel. Nothing on this site sells directly — every
+ * primary CTA leads to a trial request.
+ */
+export const salesFlow = ['trial', 'consult', 'purchase'] as const;
+export type SalesStage = (typeof salesFlow)[number];
 
-export function getPlan(id: PlanId): Plan {
-  const plan = plans.find((p) => p.id === id);
-  if (!plan) throw new Error(`Unknown plan: ${id}`);
-  return plan;
-}
+/**
+ * Brokers the EA is known to run on. Names only — these are not affiliate
+ * links and carry no partnership claim.
+ */
+export const brokers = [
+  { id: 'fbs', name: 'FBS', note: 'cent' },
+  { id: 'exness', name: 'Exness', note: 'standard' },
+  { id: 'xm', name: 'XM', note: 'standard' },
+  { id: 'icmarkets', name: 'IC Markets', note: 'standard' },
+  { id: 'pepperstone', name: 'Pepperstone', note: 'standard' },
+  { id: 'tickmill', name: 'Tickmill', note: 'standard' },
+] as const;
 
-/** Lowest advertised price, used in meta descriptions and hero CTAs. */
-export const entryPrice = Math.min(...plans.map((p) => p.price));
+/**
+ * Strategy parameters, transcribed from the EA source. These are product
+ * facts, not marketing copy — do not adjust them without checking the EA.
+ */
+export const strategySpec = {
+  grids: 6,
+  anticipationOrders: 5,
+  crossConfirmationOrders: 1,
+  gapEntryZonePercent: 20,
+  hedgeTriggerAntPoints: 1500,
+  hedgeTriggerCrossPoints: 1000,
+  hedgeStepPoints: 1000,
+  exitTargetPoints: 300,
+  trailActivationPoints: 500,
+  trailDistancePoints: 300,
+  maxIterationsPerTick: 30,
+} as const;

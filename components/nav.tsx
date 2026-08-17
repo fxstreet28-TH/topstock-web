@@ -71,7 +71,7 @@ export function Nav() {
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <Button asChild size="sm">
-            <Link href="/checkout">{t('cta')}</Link>
+            <Link href="/trial">{t('cta')}</Link>
           </Button>
         </div>
 
@@ -85,7 +85,11 @@ export function Nav() {
             aria-label={open ? t('closeMenu') : t('openMenu')}
             className="inline-flex size-9 items-center justify-center rounded-lg border border-surface-border text-ink-secondary transition-colors hover:text-ink-primary"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            {open ? (
+              <X className="size-5" aria-hidden="true" />
+            ) : (
+              <Menu className="size-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </nav>
@@ -105,7 +109,7 @@ export function Nav() {
             ))}
             <li className="pb-2 pt-3">
               <Button asChild className="w-full" size="lg">
-                <Link href="/checkout">{t('cta')}</Link>
+                <Link href="/trial">{t('cta')}</Link>
               </Button>
             </li>
           </ul>

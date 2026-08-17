@@ -1,19 +1,34 @@
 import { setRequestLocale } from 'next-intl/server';
 
 import type { Locale } from '@/lib/routing';
+import { Hero } from '@/components/hero';
+import { ProblemSection } from '@/components/problem-section';
+import { FeaturesGrid } from '@/components/features-grid';
+import { HowItWorks } from '@/components/how-it-works';
+import { TryBeforeBuy } from '@/components/try-before-buy';
+import { BacktestSection } from '@/components/backtest-chart';
+import { BrokerLogos } from '@/components/broker-logos';
+import { PricingCard } from '@/components/pricing-card';
+import { FaqAccordion } from '@/components/faq-accordion';
+import { FinalCta } from '@/components/final-cta';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale as Locale);
 
-  // Phase 2 replaces this with the full landing page sections.
   return (
-    <div className="container section">
-      <p className="eyebrow">Phase 1 — Foundation</p>
-      <h1 className="mt-4 text-display-lg text-ink-primary">
-        The Expert Advisor built exclusively for{' '}
-        <span className="text-gradient-gold">NASDAQ 100 &amp; US 30</span>.
-      </h1>
-    </div>
+    <>
+      <Hero />
+      <ProblemSection />
+      <FeaturesGrid />
+      <HowItWorks />
+      {/* The conversion centrepiece sits between the mechanism and the price. */}
+      <TryBeforeBuy />
+      <BacktestSection />
+      <BrokerLogos />
+      <PricingCard />
+      <FaqAccordion />
+      <FinalCta />
+    </>
   );
 }

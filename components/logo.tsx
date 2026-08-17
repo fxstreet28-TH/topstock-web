@@ -34,7 +34,7 @@ export function Logo({ className }: { className?: string }) {
       </svg>
       <span className="font-display text-[1.0625rem] font-bold tracking-tight text-ink-primary">
         Topstock
-        <span className="ml-1 font-mono text-[0.625rem] font-medium uppercase tracking-[0.16em] text-brand-gold">
+        <span className="ml-1 font-mono text-[0.625rem] font-medium uppercase track-label text-brand-gold">
           EA
         </span>
       </span>

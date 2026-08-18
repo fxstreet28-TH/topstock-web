@@ -241,6 +241,173 @@
     background-size: 100% 1px;
   }
 
+  /* ---------------------------------------------------------------------
+   * Cinematic layer — custom cursor, split-text entrances, tone helpers.
+   * ------------------------------------------------------------------- */
+
+  /*
+   * Custom cursor (components/cursor.tsx).
+   *
+   * The layers are always in the DOM but invisible until the component
+   * confirms a fine pointer AND the visitor has moved it, so a device that
+   * never qualifies shows nothing and keeps its native cursor. The native
+   * cursor is hidden by `.cursor-custom` on <html>, a class the component only
+   * adds once it is running — if it throws before that, the pointer is still
+   * there.
+   *
+   * Form fields keep their native cursor: a text caret needs the I-beam to be
+   * placed precisely, and no decorative ring is worth that.
+   */
+  :root {
+    --cursor-rgb: 212, 160, 23;
+  }
+
+  html.cursor-custom,
+  html.cursor-custom a,
+  html.cursor-custom button,
+  html.cursor-custom [role='button'],
+  html.cursor-custom summary {
+    cursor: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+  }
+
+  /* The visible shape lives on ::after so it can scale on hover while GSAP
+     owns the host element's transform for positioning. */
+  .cursor-dot::after,
+  .cursor-ring::after {
+    content: '';
+    position: absolute;
+    border-radius: 9999px;
+    transition:
+      transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.28s ease,
+      border-color 0.28s ease,
+      border-radius 0.28s ease;
+  }
+
+  .cursor-dot::after {
+    left: -4px;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    background: rgb(var(--cursor-rgb));
+  }
+
+  .cursor-ring::after {
+    left: -16px;
+    top: -16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(var(--cursor-rgb), 0.55);
+  }
+
+  html.cursor-live .cursor-dot,
+  html.cursor-live .cursor-ring {
+    opacity: 1;
+  }
+
+  .cursor-ring[data-state='button']::after {
+    transform: scale(1.85);
+    background: rgba(var(--cursor-rgb), 0.1);
+    border-color: rgba(var(--cursor-rgb), 0.85);
+  }
+
+  .cursor-dot[data-state='button']::after {
+    background: rgb(var(--cursor-rgb));
+  }
+
+  /* Over running text the ring collapses into an I-beam. */
+  .cursor-ring[data-state='text']::after {
+    transform: scaleX(0.09) scaleY(1.5);
+    border-radius: 1px;
+    background: rgba(var(--cursor-rgb), 0.9);
+    border-color: transparent;
+  }
+
+  /*
+   * Split-text entrances (components/text-reveal.tsx).
+   *
+   * `.tr-word` is the piece that matters for Thai: it is the inline-block that
+   * keeps a dictionary-segmented word from breaking across lines once its
+   * characters have become individually transformable boxes.
+   */
+  .tr-visual {
+    display: block;
+  }
+
+  .tr-word {
+    display: inline-block;
+  }
+
+  .tr-char {
+    display: inline-block;
+    /* Thai marks sit above and below the base glyph; without this they are
+       clipped by the inline-block box at tight display leading. */
+    padding-bottom: 0.02em;
+  }
+
+  /*
+   * Without Intl.Segmenter a Thai line arrives as one unbreakable word. This
+   * keeps that from pushing a horizontal scrollbar onto the page.
+   */
+  .tr-root {
+    overflow-wrap: anywhere;
+  }
+
+  /*
+   * Section-tone helpers. `--tone*` is published by SectionShell, so these work
+   * anywhere inside a section and fall back to gold outside one.
+   */
+  .text-tone {
+    color: var(--tone, #d4a017);
+  }
+
+  .text-gradient-tone {
+    background-image: linear-gradient(
+      160deg,
+      var(--tone-soft, #f5c518) 0%,
+      var(--tone, #d4a017) 55%,
+      rgba(var(--tone-rgb, 212, 160, 23), 0.55) 100%
+    );
+    @apply bg-clip-text text-transparent;
+  }
+
+  /*
+   * The declarative sub-line under a poster-sized title. Light weight against
+   * the extrabold heading is the whole point of the pairing.
+   */
+  .declaration {
+    @apply text-display-declaration font-light text-ink-secondary;
+  }
+
+  /*
+   * Thai needs more leading than the Latin display settings at every size, and
+   * proportionally more the larger the type gets.
+   */
+  html[lang='th'] .text-display-cinema {
+    line-height: 1.12;
+  }
+
+  html[lang='th'] .text-display-section {
+    line-height: 1.15;
+  }
+
+  html[lang='th'] .text-display-declaration {
+    line-height: 1.5;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
@@ -254,6 +421,25 @@
 
     .shimmer::after {
       display: none;
+    }
+
+    /* The cursor component returns null under reduced motion, but belt and
+       braces: never hide the native pointer. */
+    html.cursor-custom,
+    html.cursor-custom a,
+    html.cursor-custom button,
+    html.cursor-custom [role='button'],
+    html.cursor-custom summary {
+      cursor: auto;
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+      display: none;
+    }
+
+    .animate-pulse-down {
+      animation: none;
     }
   }
 }

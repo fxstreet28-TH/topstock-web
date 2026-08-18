@@ -66,6 +66,19 @@ export function BacktestSection() {
                 </div>
               ))}
             </dl>
+
+            {/*
+              The CTA lives outside the <dl>: a div that is not a dt/dd group
+              is not valid inside a definition list.
+            */}
+            <div className="flex items-center border-t border-surface-border bg-surface-elevated p-5">
+              <Button asChild variant="ghost" size="sm" className="px-0">
+                <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  {t('cta')}
+                </a>
+              </Button>
+            </div>
           </div>
 
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">

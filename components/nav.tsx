@@ -45,7 +45,12 @@ export function Nav() {
       )}
     >
       <nav className="container flex h-16 items-center justify-between gap-6" aria-label={t('primary')}>
-        <Link href="/" className="rounded-md" aria-label={t('home')}>
+        {/*
+          No aria-label here: the mark renders the words "Topstock EA", and an
+          aria-label that does not contain the visible text trips
+          label-content-name-mismatch for voice-control users.
+        */}
+        <Link href="/" className="rounded-md">
           <Logo />
         </Link>
 

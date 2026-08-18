@@ -13,6 +13,8 @@ const csp = [
   "script-src 'self' 'unsafe-inline' https://js.stripe.com https://plausible.io https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
+  // Backtest recordings are served from /public, same origin.
+  "media-src 'self'",
   "font-src 'self' data:",
   "connect-src 'self' https://api.stripe.com https://plausible.io https://*.supabase.co",
   "frame-src https://js.stripe.com https://hooks.stripe.com",

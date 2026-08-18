@@ -7,7 +7,6 @@
  */
 export const SITE_ROUTES = [
   { path: '', priority: 1.0, changeFrequency: 'weekly' },
-  { path: '/how-it-works', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/trial', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/backtest-results', priority: 0.8, changeFrequency: 'monthly' },

@@ -12,7 +12,7 @@ import { LanguageToggle } from '@/components/language-toggle';
 import { Logo } from '@/components/logo';
 
 const links = [
-  { href: '/how-it-works', key: 'howItWorks' },
+  { href: '/', key: 'home' },
   { href: '/backtest-results', key: 'backtest' },
   { href: '/pricing', key: 'pricing' },
   { href: '/brokers', key: 'brokers' },

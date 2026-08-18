@@ -34,7 +34,7 @@ const SELF_SERVE = [
   { key: 'faq', href: '/faq' },
   { key: 'setup', href: '/setup' },
   { key: 'brokers', href: '/brokers' },
-  { key: 'howItWorks', href: '/how-it-works' },
+  { key: 'home', href: '/' },
 ] as const;
 
 export default async function SupportPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -10,7 +10,7 @@ const columns = [
   {
     key: 'product',
     links: [
-      { href: '/how-it-works', key: 'howItWorks' },
+      { href: '/', key: 'home' },
       { href: '/backtest-results', key: 'backtest' },
       { href: '/pricing', key: 'pricing' },
       { href: '/setup', key: 'setup' },

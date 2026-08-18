@@ -515,6 +515,12 @@
     "bannerTitle": "Rather just talk?",
     "bannerBody": "Message us on LINE right away — no form needed."
   },
+  "popup": {
+    "title": "Try Topstock EA free for one day",
+    "imageAlt": "Topstock EA — one-day free trial, with setup guidance included",
+    "cta": "Message us on LINE to claim the free trial",
+    "close": "Close this popup"
+  },
   "howItWorks": {
     "eyebrow": "How it works",
     "title": "How Topstock EA works",

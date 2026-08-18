@@ -602,8 +602,8 @@
     "badge": "Verified backtest",
     "title": "Real backtest, recorded end to end",
     "titleAlt": "Backtest จริง บันทึกวิดีโอไว้ทั้งการรัน",
-    "summary": "US100 on M5, 18 March to 28 May 2025. Every figure on this page was read off a screen recording of the run — and the recording is on the page, so you can check each one yourself.",
-    "windowNote": "Video-captured window — the backtest may have started earlier",
+    "spec": "US100 · Timeframe M5 · 18 March → 28 May 2025",
+    "summary": "Steady cashflow across 2.5 months · 2,028 executed orders. Every open and close verified on the video below — watch every tick as if you're sitting at the terminal with us.",
     "metrics": {
       "eyebrow": "The numbers",
       "title": "What the recording shows",
@@ -646,7 +646,6 @@
       "cutsLabel": "Choose a cut",
       "label": "Screen recording of the Topstock backtest on US100",
       "unsupported": "Your browser cannot play this video.",
-      "download": "Download the recording",
       "note": "No audio commentary, no cuts, no overlays added — the counters in the panel are the EA's own."
     },
     "panes": {

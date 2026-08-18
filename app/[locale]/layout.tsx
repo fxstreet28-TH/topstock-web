@@ -10,7 +10,7 @@ import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { Analytics } from '@/components/analytics';
 import { Cursor } from '@/components/cursor';
-import { PromotionalPopup } from '@/components/promotional-popup';
+import { SidePopup } from '@/components/side-popup';
 import '../globals.css';
 
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -113,10 +113,10 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           {/*
-            Inside the provider — the popup reads its copy with
+            Inside the provider — the card reads its copy with
             useTranslations, and it suppresses itself on /trial and /legal/*.
           */}
-          <PromotionalPopup />
+          <SidePopup />
         </NextIntlClientProvider>
         <Analytics />
       </body>

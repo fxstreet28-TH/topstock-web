@@ -149,21 +149,17 @@
     },
     "backtest": {
       "eyebrow": "Backtest",
-      "title": "We publish numbers only once they're verified",
-      "description": "The full Strategy Tester report is being verified. We've chosen to show no figures at all until we can stand behind them. In the meantime, you can request a free backtest on your own broker's data.",
-      "emptyState": "Awaiting verified data",
-      "emptyStateHint": "The equity curve will appear here once the data is confirmed.",
+      "title": "2,028 deals, recorded end to end",
+      "description": "US100 on M5, 18 March to 28 May 2025. The full screen recording is on the results page, and every figure below was read off it.",
+      "posterAlt": "The MT5 Strategy Tester mid-run: chart, EA panel, and the closed-trade list",
+      "view": "See the full recording",
       "cta": "Ask for a backtest on LINE",
       "metrics": {
-        "return": "Total return",
-        "drawdown": "Max drawdown",
-        "profitFactor": "Profit factor",
-        "winRate": "Win rate",
-        "trades": "Total trades",
-        "duration": "Avg trade duration",
-        "recovery": "Recovery factor"
+        "return": "Return over the recorded window",
+        "profit": "Profit captured on video",
+        "deals": "Deals executed"
       },
-      "disclaimer": "Past performance does not guarantee future results. Backtest data is based on historical M1 tick data from a broker feed. Live results may vary due to spread, slippage, and execution differences."
+      "disclaimer": "Past performance does not guarantee future results. The figures cover the window captured on video — the run may have started earlier at a different balance. Live results vary with spread, slippage and execution."
     },
     "brokers": {
       "eyebrow": "Compatibility",
@@ -602,66 +598,156 @@
     }
   },
   "backtestResults": {
-    "eyebrow": "Backtest",
-    "title": "Backtest results",
-    "summary": "We publish numbers only once they're verified. In the meantime, ask for a free backtest on your own broker's data.",
-    "emptyState": "Awaiting verified data",
-    "why": {
-      "title": "Why this page is still empty",
-      "body": "We've chosen not to show a sample chart or placeholder figures. On a trading product, a line that goes up is read as a promise of returns no matter what the caption says. The full Strategy Tester report is being verified, and once it is confirmed the real figures will replace every blank on this page."
-    },
+    "eyebrow": "Verified backtest",
+    "badge": "Verified backtest",
+    "title": "Real backtest, recorded end to end",
+    "titleAlt": "Backtest จริง บันทึกวิดีโอไว้ทั้งการรัน",
+    "summary": "US100 on M5, 18 March to 28 May 2025. Every figure on this page was read off a screen recording of the run — and the recording is on the page, so you can check each one yourself.",
+    "windowNote": "Video-captured window — the backtest may have started earlier",
     "metrics": {
-      "return": "Total return",
-      "drawdown": "Max drawdown",
-      "profitFactor": "Profit factor",
-      "winRate": "Win rate",
-      "trades": "Total trades",
-      "duration": "Avg trade duration",
-      "recovery": "Recovery factor",
-      "sharpe": "Sharpe ratio"
-    },
-    "charts": {
-      "equity": {
-        "title": "Equity curve",
-        "description": "Account growth across the test period"
+      "eyebrow": "The numbers",
+      "title": "What the recording shows",
+      "description": "Six figures, each of them visible on screen at some point in the run.",
+      "footnoteMarker": "Covers the recorded window",
+      "caption": "Read from the recording only. It opens on 18 March with the account already at $114,920, so the run had most likely been going for some time before the capture started. Return and profit are therefore measured across the recorded window, not the full test — we would rather understate them than quote a number we cannot point at.",
+      "return": {
+        "label": "Return over the recorded window",
+        "note": "18 Mar → 28 May, about 2.5 months"
       },
-      "drawdown": {
-        "title": "Drawdown",
-        "description": "Distance below the running equity peak"
+      "profit": {
+        "label": "Profit captured on video",
+        "note": "$114,920 → $131,236"
       },
-      "monthly": {
-        "title": "Monthly returns",
-        "description": "Profit and loss broken down by month"
+      "deals": {
+        "label": "Deals executed",
+        "note": "Closed on the M5 timeframe"
+      },
+      "grids": {
+        "label": "Independent grid slots",
+        "note": "Each one managed on its own"
+      },
+      "hedgeDepth": {
+        "label": "Deepest hedge reached",
+        "note": "The safety cap held throughout"
+      },
+      "marginLevel": {
+        "label": "Lowest margin level",
+        "note": "Never close to a stop-out"
       }
     },
-    "method": {
-      "eyebrow": "Methodology",
-      "title": "How we will test it",
-      "description": "Test conditions change results substantially, so we're stating ours before the numbers exist.",
-      "items": {
-        "data": {
-          "title": "Real M1 tick data",
-          "body": "Minute-level historical tick data from a live broker feed — not simulated or generated ticks."
+    "video": {
+      "eyebrow": "The recording",
+      "title": "Watch the run",
+      "description": "An unedited screen capture of the Strategy Tester: the chart, the EA's own panel, and every deal in the order it closed.",
+      "cuts": {
+        "full": "Full recording",
+        "highlights": "Highlights"
+      },
+      "cutsLabel": "Choose a cut",
+      "label": "Screen recording of the Topstock backtest on US100",
+      "unsupported": "Your browser cannot play this video.",
+      "download": "Download the recording",
+      "note": "No audio commentary, no cuts, no overlays added — the counters in the panel are the EA's own."
+    },
+    "panes": {
+      "eyebrow": "What you are watching",
+      "title": "Three panes, one run",
+      "description": "The capture is dense, so here is what each part of the screen is telling you.",
+      "chart": {
+        "title": "The chart",
+        "body": "US100 on the M5 timeframe. Grid levels and hedge lines are drawn onto the price as the EA places them, so you can see the structure build and unwind."
+      },
+      "panel": {
+        "title": "The EA panel",
+        "body": "The overlay at the top left: the active zone, the batch state, floating and realised profit, lots in the market, and a running deal count."
+      },
+      "trades": {
+        "title": "The trade list",
+        "body": "The pane underneath: every ticket with its time, type, volume, entry and exit price, and profit, listed in the order it closed."
+      }
+    },
+    "strategy": {
+      "eyebrow": "The cycle",
+      "title": "What repeats 2,028 times",
+      "description": "One trade cycle, four stages. The point figures below are the EA's own settings, not a description of the recording.",
+      "entry": {
+        "step": "Entry",
+        "title": "Open inside the gap zone",
+        "body": "Anticipation and cross-confirmation orders are placed once price is inside the first 20% of the gap, across up to six grids that each run independently."
+      },
+      "hedge": {
+        "step": "Hedge",
+        "title": "Cover the move against you",
+        "body": "If price runs 1,500 points against an anticipation order — 1,000 against a cross-confirmation one — a hedge opens, then steps again every 1,000 points."
+      },
+      "exit": {
+        "step": "Exit",
+        "title": "Close the batch, whole",
+        "body": "The batch closes on a 300-point target. Past 500 points in profit a trail activates and follows at a 300-point distance instead."
+      },
+      "repeat": {
+        "step": "Repeat",
+        "title": "Free the slot, take the next setup",
+        "body": "The grid slot returns to the pool and the next qualifying setup takes it. Across the recorded window that cycle closed 2,028 deals."
+      }
+    },
+    "chart": {
+      "eyebrow": "Balance",
+      "title": "Balance across the recording",
+      "description": "Four checkpoints, read from four frames.",
+      "axisLabel": "Account balance in USD",
+      "seriesName": "Balance",
+      "caption": "Four checkpoints verified against the recording; the line between them is interpolated, not measured. The 8 May reading is the most precise of the four — it is the frame used as the video's poster.",
+      "points": {
+        "mar18": {
+          "label": "18 Mar",
+          "note": "Recording opens, grids in recovery"
         },
-        "spread": {
-          "title": "Recorded spread",
-          "body": "The spread actually recorded in each period, not a flat figure lower than reality."
+        "apr11": {
+          "label": "11 Apr",
+          "note": "Flat — no grids active"
         },
-        "model": {
-          "title": "Every tick based on real ticks",
-          "body": "The most detailed simulation mode in the MT5 Strategy Tester — the slowest to run, and the closest to reality."
+        "may08": {
+          "label": "8 May",
+          "note": "1,859 deals closed"
         },
-        "period": {
-          "title": "A period covering several market regimes",
-          "body": "The test window has to include rising, falling, and high-volatility markets, rather than being chosen because the result looks good."
+        "may28": {
+          "label": "28 May",
+          "note": "2,028 deals closed"
         }
+      },
+      "axisNote": "The vertical axis starts at $114,000 rather than zero, so the movement across the window stays legible.",
+      "tableHeader": "Checkpoint"
+    },
+    "conditions": {
+      "eyebrow": "Test conditions",
+      "title": "How it was run",
+      "description": "Conditions move backtest results more than most people expect, so here are ours in full.",
+      "reportedNote": "Reported by the account holder, not visible in the recording — the capture opens at $114,920.",
+      "reportedMarker": "Not video-verified",
+      "broker": "Broker",
+      "symbol": "Symbol",
+      "timeframe": "Timeframe",
+      "period": "Period",
+      "model": "Tick model",
+      "startingBalance": "Starting balance",
+      "leverage": "Leverage",
+      "eaVersion": "EA version",
+      "values": {
+        "broker": "Kohle Capital Markets (live account)",
+        "symbol": "US100 (NASDAQ 100 CFD)",
+        "model": "Real ticks, broker feed"
       }
     },
-    "disclaimer": "Past performance does not guarantee future results. Backtest data is based on historical M1 tick data from a broker feed. Live results may vary due to spread, slippage, execution delay, and differences in liquidity between periods.",
+    "disclaimer": {
+      "label": "Important limitations",
+      "body": "⚠️ Important limitations — Backtest results do not guarantee future performance. Trading index CFDs carries high risk and losses can exceed your initial deposit. Live market results may differ from a backtest because of spread, slippage, low-liquidity periods, and economic events. Always test on a demo or cent account before trading with real money."
+    },
     "cta": {
-      "title": "Ask for a backtest on your own data",
-      "description": "Rather than look at our numbers, let us run Topstock on the broker data you actually trade and send you the report, free.",
-      "button": "Ask for a backtest on LINE"
+      "title": "Want a backtest on your own broker?",
+      "description": "Rather than take our run at face value, let us run Topstock on the broker and symbol you actually trade, and send you the recording and the report. Free.",
+      "button": "Ask for a backtest on LINE",
+      "secondary": "See pricing"
     }
   },
   "brokersPage": {

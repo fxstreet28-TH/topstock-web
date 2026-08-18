@@ -26,7 +26,6 @@ const OUT = join(ROOT, 'assets', 'og');
 /** Keep in step with app/[locale]/**\/opengraph-image.tsx. */
 const PAGES = [
   { slug: 'home', title: 'metadata.ogTitle', kicker: 'metadata.ogKicker' },
-  { slug: 'how-it-works', title: 'howItWorks.title', kicker: 'howItWorks.eyebrow' },
   { slug: 'backtest-results', title: 'backtestResults.title', kicker: 'backtestResults.eyebrow' },
   { slug: 'brokers', title: 'brokersPage.title', kicker: 'brokersPage.eyebrow' },
   { slug: 'setup', title: 'setup.title', kicker: 'setup.eyebrow' },

@@ -1,8 +1,7 @@
 {
   "nav": {
     "primary": "Primary",
-    "home": "Topstock EA — home",
-    "howItWorks": "How it works",
+    "home": "Home",
     "backtest": "Backtest",
     "pricing": "Pricing",
     "brokers": "Brokers",
@@ -28,7 +27,7 @@
       "legal": "Legal"
     },
     "links": {
-      "howItWorks": "How it works",
+      "home": "Home · How it works",
       "backtest": "Backtest results",
       "pricing": "Pricing",
       "setup": "Setup guide",
@@ -1024,9 +1023,9 @@
           "title": "Brokers",
           "body": "Recommended brokers and what to check first"
         },
-        "howItWorks": {
-          "title": "How it works",
-          "body": "The strategy mechanism and every parameter"
+        "home": {
+          "title": "Home",
+          "body": "The strategy, the free trial and the consultation, on one page"
         }
       }
     }

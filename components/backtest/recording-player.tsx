@@ -56,7 +56,16 @@ export function RecordingPlayer() {
         <div className="overflow-hidden rounded-xl border border-surface-border bg-black shadow-elevated">
           <video
             key={cut}
-            className="block h-auto w-full"
+            className="block w-full object-contain"
+            /*
+             * The box is pinned to the recording's own ratio rather than left
+             * to `height: auto`. A poster is painted like video content, so a
+             * still whose ratio differs from the footage would size the
+             * element while it showed and then collapse the moment playback
+             * replaced it — an 86px jump with the current 1280x720 still. Held
+             * this way the poster letterboxes inside a box that never moves.
+             */
+            style={{ aspectRatio: `${VIDEO.width} / ${VIDEO.height}` }}
             controls
             /*
              * The recording is the product's proof, so it is watch-only: the

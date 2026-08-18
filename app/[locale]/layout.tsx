@@ -10,6 +10,7 @@ import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { Analytics } from '@/components/analytics';
 import { Cursor } from '@/components/cursor';
+import { PromoPopup } from '@/components/promo-popup';
 import '../globals.css';
 
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -111,6 +112,8 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          {/* Self-suppressing: renders nothing until its own triggers fire. */}
+          <PromoPopup />
         </NextIntlClientProvider>
         <Analytics />
       </body>

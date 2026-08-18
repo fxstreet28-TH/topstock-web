@@ -515,6 +515,13 @@
     "bannerTitle": "อยากคุยเลยไหม",
     "bannerBody": "ทักหาเราทาง Line ได้ทันที ไม่ต้องกรอกฟอร์ม"
   },
+  "popup": {
+    "ariaLabel": "โปรโมชัน: ทดลองใช้ EA Topstock ฟรี 1 วัน",
+    "imageAlt": "EA TOPSTOCK — ทดลองใช้ฟรี 1 วัน พร้อมให้คำปรึกษาการใช้งาน",
+    "primary": "ทักไลน์ รับสิทธิ์ทดลองฟรี",
+    "secondary": "ดูรายละเอียดก่อน",
+    "close": "ปิดป๊อปอัป"
+  },
   "howItWorks": {
     "eyebrow": "หลักการทำงาน",
     "title": "กลไกการทำงานของ Topstock EA",

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Download } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { VIDEO, formatDuration, type VideoCut } from '@/lib/backtest-data';
@@ -59,6 +58,17 @@ export function RecordingPlayer() {
             key={cut}
             className="block h-auto w-full"
             controls
+            /*
+             * The recording is the product's proof, so it is watch-only: the
+             * native download and cast buttons are suppressed, picture-in-
+             * picture is off, and the right-click menu (which offers "Save
+             * video as…") never opens. Chromium and Safari honour all of it;
+             * a few Firefox builds still show the download item, which the
+             * watermarks on the footage are there to cover.
+             */
+            controlsList="nodownload noremoteplayback"
+            disablePictureInPicture
+            onContextMenu={(e) => e.preventDefault()}
             playsInline
             preload="metadata"
             poster={VIDEO.poster}
@@ -67,25 +77,12 @@ export function RecordingPlayer() {
             aria-label={t('label')}
           >
             <source src={active.src} type="video/mp4" />
-            <p className="p-6 text-sm text-ink-secondary">
-              {t('unsupported')}{' '}
-              <a href={active.src} download className="text-brand-gold underline">
-                {t('download')}
-              </a>
-            </p>
+            <p className="p-6 text-sm text-ink-secondary">{t('unsupported')}</p>
           </video>
         </div>
 
-        <figcaption className="mt-4 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:text-left">
-          <p className="text-sm leading-relaxed text-ink-secondary">{t('note')}</p>
-          <a
-            href={active.src}
-            download
-            className="inline-flex shrink-0 items-center gap-1.5 text-sm text-ink-secondary transition-colors hover:text-brand-gold"
-          >
-            <Download className="size-3.5" aria-hidden="true" />
-            {t('download')}
-          </a>
+        <figcaption className="mt-4 text-center text-sm leading-relaxed text-ink-secondary">
+          {t('note')}
         </figcaption>
       </figure>
     </div>

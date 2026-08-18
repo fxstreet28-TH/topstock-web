@@ -36,7 +36,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'backtestResults' });
   return {
     title: t('title'),
-    description: t('summary'),
+    description: `${t('spec')} — ${t('summary')}`,
     alternates: {
       canonical:
         locale === routing.defaultLocale ? '/backtest-results' : `/${locale}/backtest-results`,
@@ -115,10 +115,14 @@ export default async function BacktestResultsPage({
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-ink-secondary md:text-lg">
+            {/*
+              The instrument, timeframe and window read as one spec strip, so
+              they sit on their own line above the copy rather than inside it.
+            */}
+            <p className="eyebrow mt-7">{t('spec')}</p>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-secondary md:text-lg">
               {t('summary')}
             </p>
-            <p className="eyebrow mt-6">{t('windowNote')}</p>
           </Reveal>
         </div>
       </section>

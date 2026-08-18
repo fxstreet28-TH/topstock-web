@@ -57,11 +57,22 @@ export function renderScale(): number {
 }
 
 /**
- * Scale a particle budget to the device. Phones take a 60% cut, as the brief
- * specifies; mid-range machines take a smaller one.
+ * Scale a particle budget to the device. Phones take a 70% cut, per the
+ * cosmic brief's mobile budget; mid-range machines take a smaller one.
  */
 export function scaleCount(count: number): number {
-  if (isCompactViewport()) return Math.round(count * 0.4);
+  if (isCompactViewport()) return Math.round(count * 0.3);
   if (!hasSpareCores(8)) return Math.round(count * 0.7);
   return count;
+}
+
+/**
+ * May the heavy layers run — orbital clusters, section bursts, shooting stars?
+ *
+ * These are the ones the brief switches off on phones outright rather than
+ * thinning: they are the most expensive per pixel and the least legible on a
+ * small screen.
+ */
+export function canRunHeavyEffects(): boolean {
+  return canRunCanvasEffects() && !isCompactViewport();
 }

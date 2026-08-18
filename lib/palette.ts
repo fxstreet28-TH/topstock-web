@@ -82,6 +82,77 @@ export const SURFACES = {
   void: '#000000',
   deep: '#050505',
   base: '#0A0A0A',
+  /*
+   * Cosmic steps, added by the homepage redesign. They carry a violet
+   * undertone the original three do not, so they are new keys rather than a
+   * redefinition — the inner pages keep the neutral blacks they were tuned on.
+   */
+  cosmos: '#050510',
+  nebula: '#0A0A20',
+  space: '#0D0D2A',
 } as const;
 
 export type SurfaceName = keyof typeof SURFACES;
+
+/* -------------------------------------------------------------------------
+ * Cosmic layer — the homepage redesign.
+ *
+ * The tones above still drive the inner pages. The homepage is a darker,
+ * deeper world: near-black surfaces with a violet undertone, lit by three
+ * accents (plasma violet, ion cyan, solar gold) rather than one per act.
+ * ---------------------------------------------------------------------- */
+
+export const COSMOS = {
+  /** Pure black. The deepest background step; hero and pricing sit on it. */
+  void: '#000000',
+  /** Near-void with a violet hint. The default homepage surface. */
+  deep: '#050510',
+  /** Deep purple undertone. */
+  nebula: '#0A0A20',
+  /** Slightly lit space. */
+  space: '#0D0D2A',
+  /** Faint blue-white — starlight, not paper white. */
+  starlight: '#E8E8FF',
+  /** Violet accent. 4.9:1 on `deep`; use `plasmaLight` under 18px. */
+  plasma: '#8B5CF6',
+  plasmaLight: '#A78BFA',
+  /** Electric cyan. 13.4:1 on `deep`. */
+  ion: '#00E5FF',
+  /** Gray-blue, for the dimmest particles. */
+  dust: '#4A5568',
+  /** Solar flare gold — the bright end of the Aurum brand. */
+  solar: '#F5C518',
+} as const;
+
+/**
+ * Starfield colour mix, as cumulative weights.
+ *
+ * Real starfields are overwhelmingly white; the coloured minority is what
+ * makes the eye read depth rather than noise. 80 / 15 / 5, per the brief.
+ */
+export const STAR_COLORS = [
+  { color: '255, 255, 255', alpha: 0.6, weight: 0.8 },
+  { color: '0, 229, 255', alpha: 0.5, weight: 0.15 },
+  { color: '212, 160, 23', alpha: 0.7, weight: 0.05 },
+] as const;
+
+/**
+ * Which accents each homepage act is lit by.
+ *
+ * Read by the nebula and orbital layers so a section's colour story is
+ * declared once, here, instead of at every call site.
+ */
+export const ACT_PALETTES = {
+  hero: { surface: 'void', clouds: [COSMOS.plasma, COSMOS.solar, COSMOS.ion] },
+  trial: { surface: 'cosmos', clouds: [COSMOS.plasma, '#6D28D9', COSMOS.ion] },
+  consult: { surface: 'nebula', clouds: [COSMOS.ion, COSMOS.plasma, '#0EA5E9'] },
+  pillars: { surface: 'space', clouds: [COSMOS.solar, COSMOS.plasma, '#D4A017'] },
+  proof: { surface: 'cosmos', clouds: [COSMOS.solar, COSMOS.ion, COSMOS.plasma] },
+  pricing: { surface: 'void', clouds: [COSMOS.plasma, '#4C1D95', COSMOS.ion] },
+  close: { surface: 'nebula', clouds: [COSMOS.solar, '#D4A017', COSMOS.plasma] },
+} as const;
+
+export type ActName = keyof typeof ACT_PALETTES;
+
+/** The constellation figures are always drawn in gold, whatever the act. */
+export const CONSTELLATION_TONE = '#D4A017';

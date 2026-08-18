@@ -259,7 +259,10 @@
    * placed precisely, and no decorative ring is worth that.
    */
   :root {
+    /* Gold dot, cyan ring — the brief's pairing. The ring warms to the dot's
+       gold when it is over something clickable. */
     --cursor-rgb: 212, 160, 23;
+    --cursor-ring-rgb: 0, 229, 255;
   }
 
   html.cursor-custom,
@@ -310,7 +313,7 @@
     top: -16px;
     width: 32px;
     height: 32px;
-    border: 1px solid rgba(var(--cursor-rgb), 0.55);
+    border: 1px solid rgba(var(--cursor-ring-rgb), 0.55);
   }
 
   html.cursor-live .cursor-dot,
@@ -328,11 +331,30 @@
     background: rgb(var(--cursor-rgb));
   }
 
+  /* Something to watch rather than click: the ring breathes in place. */
+  .cursor-ring[data-state='media']::after {
+    transform: scale(1.5);
+    border-color: rgba(var(--cursor-ring-rgb), 0.8);
+    animation: cursor-breathe 1.8s ease-in-out infinite;
+  }
+
+  @keyframes cursor-breathe {
+    0%,
+    100% {
+      transform: scale(1.5);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(2.1);
+      opacity: 0.45;
+    }
+  }
+
   /* Over running text the ring collapses into an I-beam. */
   .cursor-ring[data-state='text']::after {
     transform: scaleX(0.09) scaleY(1.5);
     border-radius: 1px;
-    background: rgba(var(--cursor-rgb), 0.9);
+    background: rgba(var(--cursor-ring-rgb), 0.9);
     border-color: transparent;
   }
 
@@ -440,6 +462,154 @@
 
     .animate-pulse-down {
       animation: none;
+    }
+  }
+}
+
+/* =========================================================================
+ * Cosmic layer — the homepage redesign.
+ *
+ * Everything here is scoped to classes the new homepage opts into, so the
+ * inner pages are untouched by it.
+ * ====================================================================== */
+
+@layer components {
+  /*
+   * Constellation lines (components/cosmic/constellation.tsx).
+   *
+   * `pathLength="1"` on each line means one dash array normalises every
+   * segment, so the draw-in finishes together however long the strokes are.
+   * The per-line delay is set inline by the component.
+   */
+  .constellation line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: var(--constellation-opacity, 0.3);
+    transition:
+      stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.5s ease;
+  }
+
+  .constellation[data-drawn] line {
+    stroke-dashoffset: 0;
+  }
+
+  .constellation-star {
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+  }
+
+  .constellation[data-drawn] .constellation-star {
+    opacity: calc(var(--constellation-opacity, 0.3) * 2.4);
+  }
+
+  /* Hovering a pillar card brightens its figure without redrawing it. */
+  .constellation[data-active] line {
+    opacity: calc(var(--constellation-opacity, 0.3) * 2.2);
+  }
+
+  /* --------------------------------------------------------------------
+   * Cosmic type
+   * ------------------------------------------------------------------ */
+
+  /*
+   * Thai stacks vowel and tone marks above and below the base glyph, and the
+   * larger the type the more room those need. The Latin display leading
+   * (0.88 / 0.9) clips them outright at hero size.
+   */
+  html[lang='th'] .text-display-massive {
+    line-height: 1.1;
+  }
+
+  html[lang='th'] .text-display-cosmic {
+    line-height: 1.12;
+  }
+
+  html[lang='th'] .text-subhead-cosmic {
+    line-height: 1.6;
+  }
+
+  /* Solar gold, for the emphasised line of a cosmic declaration. */
+  .text-gradient-solar {
+    background-image: linear-gradient(140deg, #f5c518 0%, #d4a017 52%, #a67c0f 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Cyan into violet — the orbital cluster's ramp, as type. */
+  .text-gradient-plasma {
+    background-image: linear-gradient(140deg, #00e5ff 0%, #8b5cf6 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
+  /*
+   * Starlight fading toward the dust colour. The darkest stop is #A8A8C4,
+   * which still clears 7:1 on the cosmic surfaces.
+   */
+  .text-gradient-starlight {
+    background-image: linear-gradient(180deg, #e8e8ff 20%, #a8a8c4 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* --------------------------------------------------------------------
+   * Cosmic surfaces
+   * ------------------------------------------------------------------ */
+
+  /* A slow violet ribbon, for the pricing act. Composited, never repainted. */
+  .aurora-ribbon {
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.35) 30%,
+      rgba(0, 229, 255, 0.22) 55%,
+      transparent 85%
+    );
+    filter: blur(48px);
+  }
+
+  /* Warm sunrise at the foot of the closing act. */
+  .solar-horizon {
+    background: radial-gradient(
+      ellipse 120% 70% at 50% 115%,
+      rgba(245, 197, 24, 0.32) 0%,
+      rgba(212, 160, 23, 0.12) 45%,
+      transparent 75%
+    );
+  }
+
+  /* Darkens the edges of a cosmic act toward the next one. */
+  .cosmic-vignette {
+    background: radial-gradient(ellipse at center, transparent 38%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  /* --------------------------------------------------------------------
+   * Lenis smooth scroll (components/smooth-scroll.tsx)
+   *
+   * Lenis drives scrolling from rAF, so the browser's own smooth behaviour
+   * has to be off or the two fight over anchor jumps.
+   * ------------------------------------------------------------------ */
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .constellation line {
+      stroke-dashoffset: 0;
+      transition: none;
+    }
+
+    .constellation-star {
+      opacity: calc(var(--constellation-opacity, 0.3) * 2.4);
+      transition: none;
     }
   }
 }

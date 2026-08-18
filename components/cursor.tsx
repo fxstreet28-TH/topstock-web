@@ -13,8 +13,10 @@ import { hasFinePointer, prefersReducedMotion } from '@/lib/motion';
  * here can never leave a visitor without a pointer.
  *
  * Interactions:
- *   · over any interactive element  → the ring expands and fills faintly
+ *   · over any interactive element  → the ring expands, fills faintly and
+ *                                     warms from cyan to gold
  *   · over running text             → the ring collapses to an I-beam
+ *   · over video or `[data-cursor="media"]` → the ring pulses
  *   · near a `[data-magnetic]` CTA  → the button leans toward the cursor and
  *                                     the ring is pulled to the button's centre
  *
@@ -37,6 +39,8 @@ const MAGNET_CURSOR_PULL = 0.42; // how far the ring is dragged toward centre
 
 const INTERACTIVE = 'a, button, [role="button"], summary, [data-cursor="button"]';
 const TEXTUAL = 'p, li, h1, h2, h3, h4, blockquote, label, [data-cursor="text"]';
+/** Video and other things you look at rather than click; the ring pulses. */
+const MEDIA = 'video, [data-cursor="media"]';
 
 interface MagnetRect {
   el: HTMLElement;
@@ -185,8 +189,17 @@ function run(
     const interactive = target.closest<HTMLElement>(INTERACTIVE);
     if (interactive && interactive === hovered) return;
     hovered = interactive;
-    ring.dataset.state = interactive ? 'button' : target.closest(TEXTUAL) ? 'text' : 'idle';
-    dot.dataset.state = ring.dataset.state;
+    // Media is checked first: a `<video>` wrapped in a link should still read
+    // as something to watch rather than something to click.
+    const state = target.closest(MEDIA)
+      ? 'media'
+      : interactive
+        ? 'button'
+        : target.closest(TEXTUAL)
+          ? 'text'
+          : 'idle';
+    ring.dataset.state = state;
+    dot.dataset.state = state;
   };
 
   const onLeave = () => root.classList.remove('cursor-live');

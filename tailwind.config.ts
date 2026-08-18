@@ -48,6 +48,27 @@ const config: Config = {
           deep: '#050505',
           void: '#000000',
         },
+        /*
+         * Cosmic palette — the homepage redesign. Mirrors COSMOS in
+         * lib/palette.ts, which the canvas layers read.
+         *
+         * Contrast on `cosmos-deep` (#050510): ion 13.4:1 · solar 11.9:1 ·
+         * starlight 17.4:1 · plasma 4.9:1. `plasma` clears AA for body text
+         * but sits close to the floor, so `plasma-light` exists for anything
+         * under 18px. `dust` is decorative only — never put text in it.
+         */
+        cosmos: {
+          void: '#000000',
+          deep: '#050510',
+          nebula: '#0A0A20',
+          space: '#0D0D2A',
+          starlight: '#E8E8FF',
+          plasma: '#8B5CF6',
+          'plasma-light': '#A78BFA',
+          ion: '#00E5FF',
+          dust: '#4A5568',
+          solar: '#F5C518',
+        },
         surface: {
           DEFAULT: '#0A0A0A',
           elevated: '#141414',
@@ -117,6 +138,28 @@ const config: Config = {
          * Manrope tops out at 800; `font-extrabold` is the heaviest real weight
          * and is used instead of a synthesised 900.
          */
+        /*
+         * The homepage hero. 14vw is the brief's figure and it is enormous:
+         * at 1440px that is 202px, capped at 224px.
+         *
+         * The lower bound is 3rem, not the brief's 4rem. At 360px a 64px
+         * Thai line ("ไม่หยุด ไม่หลับ") overflows the viewport, and Thai
+         * cannot be hyphenated to recover.
+         */
+        'display-massive': [
+          'clamp(3rem, 14vw, 14rem)',
+          { lineHeight: '0.88', letterSpacing: '-0.04em' },
+        ],
+        // Section-level declarations on the homepage — one step below the hero.
+        'display-cosmic': [
+          'clamp(2.25rem, 8vw, 9rem)',
+          { lineHeight: '0.9', letterSpacing: '-0.04em' },
+        ],
+        // The light counterweight under a cosmic declaration.
+        'subhead-cosmic': [
+          'clamp(1.125rem, 3vw, 3rem)',
+          { lineHeight: '1.35', letterSpacing: '-0.01em' },
+        ],
         'display-cinema': [
           'clamp(3.25rem, 12vw, 11rem)',
           { lineHeight: '0.88', letterSpacing: '-0.04em' },
@@ -168,6 +211,23 @@ const config: Config = {
           from: { opacity: '0', transform: 'translateY(12px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
+        /*
+         * Cosmic ambience. All transform/opacity, so they stay on the
+         * compositor; the nebula layer runs several of these at once.
+         */
+        'nebula-drift': {
+          '0%': { transform: 'translate3d(0,0,0) rotate(0deg) scale(1)' },
+          '50%': { transform: 'translate3d(3%, -4%, 0) rotate(180deg) scale(1.18)' },
+          '100%': { transform: 'translate3d(0,0,0) rotate(360deg) scale(1)' },
+        },
+        'aurora-flow': {
+          '0%, 100%': { transform: 'translateX(-8%) scaleY(1)', opacity: '0.35' },
+          '50%': { transform: 'translateX(8%) scaleY(1.25)', opacity: '0.6' },
+        },
+        'shimmer-sweep': {
+          '0%': { transform: 'translateX(-120%)' },
+          '100%': { transform: 'translateX(120%)' },
+        },
         // Scroll hint at the foot of the hero.
         'pulse-down': {
           '0%, 100%': { opacity: '0.35', transform: 'translateY(0)' },
@@ -179,6 +239,9 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-up': 'fade-up 0.5s ease-out both',
         'pulse-down': 'pulse-down 2.4s ease-in-out infinite',
+        'nebula-drift': 'nebula-drift 90s linear infinite',
+        'aurora-flow': 'aurora-flow 18s ease-in-out infinite',
+        'shimmer-sweep': 'shimmer-sweep 2.8s ease-in-out infinite',
       },
     },
   },

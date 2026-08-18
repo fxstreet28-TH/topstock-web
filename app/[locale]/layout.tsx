@@ -9,6 +9,7 @@ import { siteConfig } from '@/lib/site';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { Analytics } from '@/components/analytics';
+import { Cursor } from '@/components/cursor';
 import '../globals.css';
 
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -103,6 +104,8 @@ export default async function LocaleLayout({
           <a href="#main" className="skip-link">
             {t('skipToContent')}
           </a>
+          {/* Desktop pointers only; renders nothing on touch or reduced motion. */}
+          <Cursor />
           <Nav />
           <main id="main" className="flex-1">
             {children}

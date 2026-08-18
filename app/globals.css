@@ -601,6 +601,59 @@
     overflow: hidden;
   }
 
+  /* --------------------------------------------------------------------
+   * Floating side card (components/side-popup.tsx)
+   *
+   * Off-canvas start rather than a plain fade: the card arrives from the
+   * edge it lives on, which reads as "docking" instead of "appearing over
+   * the page". 120% clears its own drop shadow so nothing bleeds in early.
+   * ------------------------------------------------------------------ */
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(120%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-out-right {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(120%);
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-slide-out-right {
+    animation: slide-out-right 400ms cubic-bezier(0.7, 0, 0.84, 0) both;
+  }
+
+  /*
+   * The component unmounts on a timer, not on animationend, so suppressing
+   * the animation here cannot strand the card on screen.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-in-right,
+    .animate-slide-out-right {
+      animation: none;
+    }
+
+    .animate-slide-out-right {
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .constellation line {
       stroke-dashoffset: 0;

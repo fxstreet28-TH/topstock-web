@@ -32,8 +32,11 @@ const STORAGE_KEY = 'topstock-side-popup-dismissed';
 /** Non-intrusive enough to come back sooner than the old weekly interstitial. */
 const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000;
 
-/** Long enough to be past the fold, short enough to catch a bouncing visitor. */
-const SHOW_DELAY_MS = 3_000;
+/**
+ * Short enough that the card is on screen while the visitor is still looking
+ * at the first fold. Three seconds read as "broken" on a fast connection.
+ */
+const SHOW_DELAY_MS = 500;
 
 /** Must match the CSS animations in app/globals.css. */
 const ANIMATION_MS = 400;
@@ -159,9 +162,24 @@ export function SidePopup() {
       aria-label={t('altText')}
       className={[
         // Tighter inset on phones, where the card is also narrower.
-        'group fixed bottom-4 right-4 z-50 w-[160px] md:bottom-6 md:right-6 md:w-[240px]',
+        'group fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6',
         phase === 'leaving' ? 'animate-slide-out-right' : 'animate-slide-in-right',
       ].join(' ')}
+      /*
+        Width is an inline style, not a utility class, because it is one
+        continuous curve rather than two fixed steps at a breakpoint: the card
+        tracks the viewport between a floor and a ceiling instead of jumping
+        from 160px to 240px at 768px. `clamp` in a class would have to be an
+        arbitrary value anyway, and this keeps the three numbers that define
+        the card's size readable in one place.
+
+        The `maxWidth` is belt-and-braces for viewports narrow enough that
+        22vw plus the 1rem insets would otherwise crowd the screen edge.
+      */
+      style={{
+        width: 'clamp(120px, 22vw, 180px)',
+        maxWidth: 'calc(100vw - 2rem)',
+      }}
     >
       {/*
         The whole card is the link. An anchor rather than a click handler on
@@ -188,7 +206,7 @@ export function SidePopup() {
           Width and height are the desktop export's intrinsic size — they set
           the aspect ratio so the card holds its height before the image lands.
         */}
-        <picture>
+        <picture style={{ display: 'block', width: '100%' }}>
           <source
             media="(max-width: 767px)"
             type="image/webp"
@@ -196,13 +214,20 @@ export function SidePopup() {
           />
           <source media="(max-width: 767px)" srcSet="/images/popup/promo-mobile.jpg" />
           <source type="image/webp" srcSet="/images/popup/promo-desktop.webp" />
+          {/*
+            The sizing here is inline for the same reason the card's width is:
+            the image filling its container is load-bearing for the card's
+            size, so it should not be able to lose to a stylesheet the popup
+            does not control. <picture> is an inline element by default, which
+            is the one way a full-width child can still leave a gap.
+          */}
           <img
             src="/images/popup/promo-desktop.jpg"
             alt={t('altText')}
             width={800}
             height={1251}
             loading="lazy"
-            className="block h-auto w-full"
+            style={{ display: 'block', width: '100%', height: 'auto' }}
           />
         </picture>
       </a>

@@ -17,20 +17,11 @@ import { CONTACT } from '@/lib/site';
  * `position: fixed` is the entire "follows the scroll" requirement: the card
  * is anchored to the viewport, so there is no scroll listener and no sticky
  * ancestor to get wrong.
- */
-
-/**
- * One constant, read and written in the same place.
  *
- * Deliberately a different key from the old interstitial's
- * `topstock:promo-popup:last-shown`. Visitors who dismissed that one are not
- * carrying a suppression into this format, which is far less intrusive and
- * has a shorter cooldown to match.
+ * The card shows once per route, every route. It lives in the locale layout,
+ * which survives client-side navigation, so a route change is a state change
+ * here rather than a remount — see the effect below for what that costs.
  */
-const STORAGE_KEY = 'topstock-side-popup-dismissed';
-
-/** Non-intrusive enough to come back sooner than the old weekly interstitial. */
-const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000;
 
 /**
  * Short enough that the card is on screen while the visitor is still looking
@@ -57,34 +48,6 @@ function isSuppressedPath(pathname: string): boolean {
   return pathname === '/trial' || pathname === '/legal' || pathname.startsWith('/legal/');
 }
 
-/** Dismissed inside the cooldown window? */
-function dismissedRecently(): boolean {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return false;
-
-    const at = Number(raw);
-    // A missing, corrupted or hand-edited value means "no record", not
-    // "suppress forever".
-    if (!Number.isFinite(at)) return false;
-
-    return Date.now() - at < COOLDOWN_MS;
-  } catch {
-    // Safari in private mode throws on localStorage access. Showing the card
-    // is the friendlier failure: the visitor sees the offer, and the worst
-    // case is that they see it again next visit.
-    return false;
-  }
-}
-
-function markDismissed(): void {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
-  } catch {
-    // Storage unavailable — the card still works for this page view.
-  }
-}
-
 /**
  * `hidden` covers both "not yet due" and "gone"; the card only exists in the
  * DOM while entering or leaving, and `leaving` is what keeps it there long
@@ -96,37 +59,44 @@ export function SidePopup() {
   const t = useTranslations('sidePopup');
   const pathname = usePathname();
 
+  /*
+   * `hidden` is also the server's answer, so the first client render agrees
+   * with the server's HTML without a `mounted` flag to gate it. Nothing here
+   * touches `window` before the effects run.
+   */
   const [phase, setPhase] = useState<Phase>('hidden');
-  // The first client render has to match the server's empty output, so the
-  // card is never rendered on the server pass. Tracked rather than assumed
-  // because `dismissedRecently` reads `window`.
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   const suppressed = isSuppressedPath(pathname);
 
   const dismiss = useCallback(() => {
-    // Stamped on dismiss rather than on show: a visitor who leaves with the
-    // card still on screen has not turned the offer down.
-    markDismissed();
     setPhase((current) => (current === 'entering' ? 'leaving' : current));
   }, []);
 
   /*
-   * Arming the timer.
+   * Arming the timer, once per route.
    *
-   * localStorage is read here rather than in a useState initialiser: the
-   * initialiser runs during the server render too, where `window` does not
-   * exist, and even guarded it would produce a first client render that
-   * disagreed with the server's HTML.
+   * Keyed on `pathname` rather than on `suppressed`, so a client-side
+   * navigation between two ordinary pages re-arms the card instead of leaving
+   * it in whatever state the previous route ended in. The offer is the point
+   * of the site, and a visitor moving between pages is exactly who it is for.
+   *
+   * `setPhase('hidden')` first is what makes that visible: a card still on
+   * screen from the previous route would stay mounted and never replay its
+   * slide-in, so the new route would look like nothing happened. Dropping it
+   * to `hidden` and letting the timer bring it back gives every route the
+   * same entrance.
+   *
+   * Dismissal therefore lasts for the current route only — deliberately. The
+   * close button is "not now", not "not again"; there is no persisted
+   * cooldown, so a reload or a new tab starts clean too.
    */
   useEffect(() => {
-    if (suppressed || dismissedRecently()) return;
+    setPhase('hidden');
+    if (suppressed) return;
 
     const timer = window.setTimeout(() => setPhase('entering'), SHOW_DELAY_MS);
     return () => window.clearTimeout(timer);
-  }, [suppressed]);
+  }, [pathname, suppressed]);
 
   /* Esc dismisses, same as the close button. */
   useEffect(() => {
@@ -154,7 +124,7 @@ export function SidePopup() {
     return () => window.clearTimeout(timer);
   }, [phase]);
 
-  if (!mounted || suppressed || phase === 'hidden') return null;
+  if (suppressed || phase === 'hidden') return null;
 
   return (
     <div
